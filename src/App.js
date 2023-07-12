@@ -7,17 +7,21 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
  
 import Footer from "./components/footer";
-import Navbar from "./components/navbar";
 import Login from "./components/login";
 import Home from "./components/home";
+import Account from "./components/account";
+import Seat from "./components/seat";
+import Newevent from "./components/newevent";
 
 function App() {
   return (
     <div id = "background">
-      <Navbar />
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/account" element={<Account />} />
+        <Route path="/seat" element={<Seat />} />
+        <Route path="/create" element={<Newevent />} />
       </Routes>
       <Footer />
     </div> 
