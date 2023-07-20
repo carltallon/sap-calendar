@@ -14,9 +14,10 @@
 
   #navigation {
     padding: 5px;
-    border-bottom: 1px solid #ffffff;
+    border-bottom: 1px solid #515151;
     display: flex;
-    background-color: #88888834;
+    
+    background-color: rgba(164, 164, 164, 0.267);
     font-size: 22.5px;
     justify-content: space-between;
     align-items: center;

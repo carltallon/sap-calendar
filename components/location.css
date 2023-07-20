@@ -2,7 +2,9 @@
     margin-top: 0vh;
     padding: 5px;
     text-align: center;
-    border: 2px solid rgb(180, 180, 180);
+    border: 2px solid rgb(24, 24, 24);
+    
+  background-color: rgba(164, 164, 164, 0.406);
 }
 
 .locationbtnatoffice {

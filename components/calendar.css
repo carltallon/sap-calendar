@@ -14,7 +14,9 @@ body {
 
 #calendardiv {
     margin: 10px;
-    border: 2px solid #ffffffbe;
+    border: 2px solid #303030be;
+    
+  background-color: rgba(164, 164, 164, 0.406);
 }
 
 .sidedivmain{
@@ -39,8 +41,10 @@ body {
 
 .upcomingeventsdiv {
   margin-top: 5vh;
-  border: 2px solid #ffffffbe;
+  border: 2px solid #292929be;
   padding: 10px;
+  
+  background-color: rgba(164, 164, 164, 0.406);
 }
 
 
@@ -49,6 +53,10 @@ days not in month
 */
 .rbc-off-range-bg {
   background: #41a3ff32 !important;
+}
+
+.rbc-day-bg {
+  border-left: 1px solid #000000 !important;
 }
 
 /* date */
