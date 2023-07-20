@@ -16,6 +16,8 @@ function login() {
               </form>
 
               <button class = "loginbutton" type = "submit">Login</button>
+
+              <h3>Don't have an account? <a href = "/register">Register here</a></h3>
             
           </div>
   );
