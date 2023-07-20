@@ -15,7 +15,7 @@ import Newevent from "./components/newevent";
 
 function App() {
   return (
-    <div class = "background">
+    <div id = "background" class = "background">
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
