@@ -1,17 +1,16 @@
 .footer {
     text-align: center;
-    max-width: 800vh;
-    margin: 90vh auto;
+    width: 100%;
+    margin: 50vh auto;
     padding: 5vh;
     border-top: 1px solid #ffffffbe;
     color: white;
-    background-color: black;
-    height: 20vh;
   }
 
-@media screen and (max-width: 1000px) {
-  footer {
-      margin-top: 50vh;
+@media screen and (min-width: 700px) {
+  .footer {
+      margin-top: 60vh;
+      width: 80%;
 
   }
 }

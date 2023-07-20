@@ -15,7 +15,7 @@ import Newevent from "./components/newevent";
 
 function App() {
   return (
-    <div id = "background">
+    <div class = "background">
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
@@ -24,7 +24,7 @@ function App() {
         <Route path="/create" element={<Newevent />} />
       </Routes>
       <Footer />
-    </div> 
+    </div>
   );
 }
   

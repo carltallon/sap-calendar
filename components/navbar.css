@@ -14,9 +14,9 @@
 
   #navigation {
     padding: 5px;
-    border-bottom: 1px solid #ffffffbe;
-    background: #000000;
+    border-bottom: 1px solid #ffffff;
     display: flex;
+    background-color: #88888834;
     font-size: 22.5px;
     justify-content: space-between;
     align-items: center;

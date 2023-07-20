@@ -25,22 +25,24 @@ const localizer = dateFnsLocalizer({
 
 const events = [
   {
-      title: "Big Meeting",
+      title: "Weekly Sync",
       allDay: true,
       start: new Date(2023, 7, 0),
       end: new Date(2023, 7, 0),
   },
   {
-      title: "Vacation",
+      title: "CoE Intern XP",
       start: new Date(2023, 7, 7),
       end: new Date(2023, 7, 10),
   },
   {
-      title: "Conference",
+      title: "D-Com",
       start: new Date(2023, 7, 6),
       end: new Date(2023, 7, 10),
   },
 ];
+
+const eventNames = events.map(({ title }) => title)
 
 
 function Sapcalendar() {
@@ -63,9 +65,10 @@ function Sapcalendar() {
           <div class="upcomingeventsdiv">
 
             <h2>Your upcoming events</h2>
-            <button class="upcomingeventsbutton"> <a> Upcoming Event 1</a> </button>
-            <button class="upcomingeventsbutton"> <a> Upcoming Event 2</a> </button>
-            <button class="upcomingeventsbutton"> <a> Upcoming Event 3</a> </button>
+
+            {eventNames.map(title => <button class="upcomingeventsbutton"> <a> {title} </a> </button>)}
+
+
           </div>
         </div>
 

@@ -5,7 +5,7 @@ body {
 }
 
 .calendarholdermain {
-  max-width: 1400px;
+  max-width: 200vh;
   height: 90vh;
   margin: 2vh auto;
   display: grid;
@@ -40,6 +40,7 @@ body {
 .upcomingeventsdiv {
   margin-top: 5vh;
   border: 2px solid #ffffffbe;
+  padding: 10px;
 }
 
 
@@ -83,4 +84,23 @@ days not in month
   background-color: #000000 !important;
   color: #41a3ff !important;
   cursor: pointer !important;
+}
+
+
+
+@media screen and (max-width: 1200px) {
+  
+  .calendarholdermain {
+    grid-template-columns: auto;
+    max-width: 90vh;
+  }
+
+}
+
+
+@media screen and (max-width: 800px) {
+
+  .calendarholdermain {
+    max-width: 50vh;
+  }
 }
