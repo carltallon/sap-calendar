@@ -38,38 +38,11 @@
     
   }
   
-  .weekmonthbutton {
-    border: none;
-    margin: 10px;
-    margin-top: 5vh;
-    color: black;
-    background-color: #1294F2;
-    border-radius: 20px;
-    font-size: 15px;
-    padding: 18px 25px;
-    text-align: center;
-    font-family: Quicksand;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-  
-  
-  }
-  
-  .weekmonthbutton:hover {
-    color : #1294F2;
-    background-color: black;
-    cursor: pointer;
-    
-    border: 2px solid #1294F2;
-  }
-
-  
   .upcomingeventsbutton {
     padding: 20px 80px;
     border-radius: 15px;
     background: #d3d3d3;
-    margin-top: 1vh;
+    margin: 1vh 2vh;
     font-family: Quicksand;
     font-style: normal;
     font-weight: 400;

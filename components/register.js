@@ -7,10 +7,12 @@ export default function Register() {
     <div>
 
         <Navbar />
-        <div class ="mainaccountdiv">
+        <div class ="registerdiv">
             
 
-            register            
+            <h2>Register</h2>   
+
+            <h3>Connect your google account to continue</h3>        
         </div>
     </div>
     

@@ -3,8 +3,9 @@
     padding: 5px;
     text-align: center;
     border: 2px solid rgb(24, 24, 24);
-    
-  background-color: rgba(164, 164, 164, 0.406);
+    background-color: rgba(164, 164, 164, 0.406);
+    border: 2px solid rgb(150, 150, 150);
+    box-shadow: 5px 5px rgba(164, 164, 164, 0.253);
 }
 
 .locationbtnatoffice {
@@ -19,7 +20,7 @@
     font-style: normal !important;
     font-weight: 500 !important;
     line-height: normal !important;
-    background: url(workingfromoffice.png);
+    background: url(workingfromofficeblack.png);
     background-repeat: no-repeat;
     background-size:contain;
 }
@@ -27,6 +28,7 @@
 
 .locationbtnatoffice:hover {
     cursor: pointer;
+    border: 1px solid grey;
 }
 
 .locationbtnathome {
@@ -41,7 +43,7 @@
     font-style: normal !important;
     font-weight: 500 !important;
     line-height: normal !important;
-    background: url(workingfromhome.png);
+    background: url(workingfromhomeblack.png);
     background-repeat: no-repeat;
     background-size:contain;
 }
@@ -49,4 +51,5 @@
 
 .locationbtnathome:hover {
     cursor: pointer;
+    border: 1px solid grey;
 }

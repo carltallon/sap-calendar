@@ -137,11 +137,11 @@ input:checked + .slider:before {
 
 
 #accounticon:hover {
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
 #calendaricon:hover {
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 #calendaricon {
@@ -151,7 +151,7 @@ input:checked + .slider:before {
 }
 
 #seaticon:hover {
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 #seaticon {

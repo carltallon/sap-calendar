@@ -2,6 +2,8 @@
     margin: 10vh auto;
     text-align: center;
     max-width: 100vh;
-    border: 2px solid red;
     padding: 1vh;
+    border: 2px solid rgb(150, 150, 150);
+    background-color: rgba(164, 164, 164, 0.406);
+    box-shadow: 5px 5px rgba(164, 164, 164, 0.253);
 }
