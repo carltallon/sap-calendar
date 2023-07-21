@@ -1,0 +1,8 @@
+.registerdiv {
+    border: 2px solid rgb(150, 150, 150);
+    max-width: 100vh;
+    margin: 10vh auto;
+    text-align: center;
+    background-color: rgba(164, 164, 164, 0.406);
+    box-shadow: 5px 5px rgba(164, 164, 164, 0.253);
+}
