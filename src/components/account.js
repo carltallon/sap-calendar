@@ -11,8 +11,6 @@ export default function account() {
             
 
           <h3>Manage your Account</h3>
-
-          
             
         </div>
     </div>
