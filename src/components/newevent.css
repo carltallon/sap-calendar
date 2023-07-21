@@ -360,7 +360,7 @@ CSS FILE >_<
   margin-bottom: 2.5rem;
 }
 .dashboard__wrapper .dashboard__body .start__block .form_body .form-group input[type=date] {
-  background-color: #000;
+  background-color: #ffffff;
   padding: 1rem;
   position: relative;
   box-shadow: none;
@@ -411,7 +411,7 @@ CSS FILE >_<
   cursor: pointer;
 }
 .dashboard__wrapper .dashboard__body .start__block .form_body select option {
-  color: #000;
+  color: #ffffff;
 }
 .dashboard__wrapper .dashboard__body .start__block .form_body input {
   color: #fff;
