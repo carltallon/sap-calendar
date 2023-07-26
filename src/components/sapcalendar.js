@@ -7,6 +7,7 @@ import { Calendar, dateFnsLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 
 import Buttons from "../components/buttons.js";
+import Navbar from "../components/navbar.js";
 import Location from "../components/location.js";
 
 import React, { useState } from "react";
@@ -54,6 +55,7 @@ function Sapcalendar() {
     
 
     <div>
+      <Navbar />
 
       <div class="calendarholdermain">
 
@@ -81,10 +83,6 @@ function Sapcalendar() {
         </div>
 
       </div>
-
-      
-      
-
     
     </div>
   );

@@ -29,11 +29,12 @@
 
 .logintext {
   margin: 15px;
-  width: 400px;
+  width: 40vw;
   height: 50px;
   font-size: 25px;
   border-radius: 15px;
   padding: 10px;
+  color: black !important;
 }
 
 .loginbutton {
@@ -44,19 +45,22 @@
   border-radius: 20px;
   font-family: Quicksand;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 400;
   line-height: normal;
 }
 
+.loginbutton:hover{
+	background-color: white;
+	color: #1294F2;
+	cursor: pointer;
+}
 
-.fallingcalendar {
-  background: url(sapcalendarblacktransparent.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 100px;
-  height: 90px;
-  margin: auto;
-  padding: 2px;
+
+
+
+.registerlink {
+	text-decoration: underline;
+	color: #1294F2;
 }
 
 /* calendar animatin */

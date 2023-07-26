@@ -8,10 +8,6 @@
 
 }
 
-body {
-  height: 100%;
-
-}
 
 .background {
   background-color: rgb(255, 255, 255);
@@ -21,8 +17,12 @@ body {
   width: auto;
 }
 
-html {
-  background-color: rgb(255, 255, 255);
+body {
   padding: 0;
   margin: 0;
+  background-color: rgb(255, 255, 255);
+}
+
+html {
+  background-color: rgb(255, 255, 255);
 }

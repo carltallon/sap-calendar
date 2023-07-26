@@ -258,8 +258,8 @@ CSS FILE >_<
   margin: 2vh auto;
   font-size: 1.6rem;
   font-family: "Inter", sans-serif;
-  background-color: #000;
-  color: #fff;
+  background-color: #ffffff;
+  color: #000000;
 
 }
 
@@ -386,10 +386,10 @@ CSS FILE >_<
   outline: none;
 }
 .dashboard__wrapper .dashboard__body .start__block .form_body .border-bottom {
-  border-bottom: 0.1rem solid #fff;
+  border-bottom: 0.1rem solid #000000;
 }
 .dashboard__wrapper .dashboard__body .start__block .form_body .border {
-  border: 0.1rem solid #fff;
+  border: 0.1rem solid #000000;
 }
 .dashboard__wrapper .dashboard__body .start__block .form_body .w-6rem {
   width: 5rem;
@@ -403,30 +403,30 @@ CSS FILE >_<
   flex: 1;
 }
 .dashboard__wrapper .dashboard__body .start__block .form_body select {
-  border: 0.1rem solid #fff;
-  color: #fff;
+  border: 0.1rem solid #000000;
+  color: #000000;
   background: transparent url(../images/angle-down.png) no-repeat;
   background-position: 97% center;
   background-size: 2rem;
   cursor: pointer;
 }
 .dashboard__wrapper .dashboard__body .start__block .form_body select option {
-  color: #ffffff;
+  color: #000000;
 }
 .dashboard__wrapper .dashboard__body .start__block .form_body input {
-  color: #fff;
+  color: #000000;
   padding: 0 0 1.5rem;
 }
 .dashboard__wrapper .dashboard__body .start__block .form_body input::placeholder {
-  color: #fff;
+  color: #000000;
 }
 .dashboard__wrapper .dashboard__body .start__block .form_body textarea {
   background-color: transparent;
   resize: none;
-  color: #fff;
+  color: #000000;
 }
 .dashboard__wrapper .dashboard__body .start__block .form_body textarea::placeholder {
-  color: #fff;
+  color: #000000;
 }
 .dashboard__wrapper .dashboard__body .start__block .form_body .addLocation {
   display: flex;

@@ -1,7 +1,52 @@
 .mainaccountdiv {
     text-align: center;
-    max-width: 150vh;
+    max-width: 60vw;
     margin: 10vh auto;
     padding: 1vh;
-    border: 2px solid red;
+    padding: 5vw;
+    box-shadow: 2px 2px;
+    border: 2px solid rgb(150, 150, 150);
+    background-color: rgba(164, 164, 164, 0.406);
+    box-shadow: 5px 5px rgba(164, 164, 164, 0.253);
+}
+
+.accountinfoholder {
+    display: grid;
+    margin: 5vh auto;
+    grid-template-columns: 10vw 20vw;
+    gap: 2vw;
+    max-width: 40vw;
+
+}
+
+.accountitem {
+    padding: 1vh 1vw;
+}
+
+.accountinfoitem {
+    padding: 10px;
+}
+
+.signoutbtn {
+    padding: 15px 30px;
+    border: none;
+    margin: 10px;
+    margin-top: 1vh;
+    color: black;
+    background-color: #1294F2;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    width: 15vw;
+    height: 5vh;
+    font-family: Quicksand;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.signoutbtn:hover {
+    background-color: rgb(206, 206, 206);
+    color: #1294F2;
+    cursor: pointer;
+    border: 1px solid #1294F2;
 }

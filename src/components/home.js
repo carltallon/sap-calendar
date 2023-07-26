@@ -1,22 +1,45 @@
 import './home.css';
 
 import Navbar from "../components/navbar.js";
+import Login from "../components/login.js";
 import SAPCalendar from "../components/sapcalendar.js";
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
+import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-database.js";
+import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js";
+import { useAuthState } from 'react-firebase-hooks/auth';
+
+
+
+const firebaseConfig = {
+    // Your Firebase configuration here
+    apiKey: "AIzaSyCf8LYQfeurGdAvB5Uu_eeQIVoWyl6Z3IY",
+    authDomain: "test-30bf7.firebaseapp.com",
+    databaseURL: "https://test-30bf7-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "test-30bf7",
+    storageBucket: "test-30bf7.appspot.com",
+    messagingSenderId: "381008086519",
+    appId: "1:381008086519:web:f5fce4c537e56933ca1af2",
+    measurementId: "G-PMRE4PWB4B"
+};
+
+
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+//const database = getDatabase(app);
+const auth = getAuth();
 
 export default function Home() {
 
-  
+  const[user] = useAuthState(auth);
 
   return (
-    <div>
-      
-      <Navbar />
 
-      <SAPCalendar />
-      
+    <div>
+      { user ? <SAPCalendar />:<Login />}
     </div>
     
   );
 }
 
-//{ user ? <SAPCalendar /> : <Login /> }
