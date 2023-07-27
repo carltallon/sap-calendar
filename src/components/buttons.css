@@ -41,14 +41,16 @@
   .upcomingeventsbutton {
     padding: 20px 80px;
     border-radius: 15px;
-    background: #d3d3d3;
-    margin: 1vh 2vh;
+    background: #f0ae09;
+    margin: 1vh auto;
+    color: white;
     font-family: Quicksand;
     font-style: normal;
     font-weight: 400;
     font-size: 1.2rem;
+    border: 0px;
     line-height: normal;
-    width: 35vh;
+    width: 20vw;
   }
   
   .upcomingeventsbutton:hover {

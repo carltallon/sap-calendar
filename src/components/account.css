@@ -8,6 +8,11 @@
     border: 2px solid rgb(150, 150, 150);
     background-color: rgba(164, 164, 164, 0.406);
     box-shadow: 5px 5px rgba(164, 164, 164, 0.253);
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.6rem;
+    line-height: normal;
 }
 
 .accountinfoholder {
@@ -15,16 +20,24 @@
     margin: 5vh auto;
     grid-template-columns: 10vw 20vw;
     gap: 2vw;
-    max-width: 40vw;
+    max-width: 30vw;
 
 }
 
 .accountitem {
     padding: 1vh 1vw;
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: normal;
 }
 
 .accountinfoitem {
     padding: 10px;
+    width: 12vw;
+    border-radius: 5px;
+    border: 2px solid black;
 }
 
 .signoutbtn {
@@ -33,10 +46,10 @@
     margin: 10px;
     margin-top: 1vh;
     color: black;
-    background-color: #1294F2;
+    background-color: #ee1c1c;
     border-radius: 8px;
     font-size: 1.2rem;
-    width: 15vw;
+    width: 10vw;
     height: 5vh;
     font-family: Quicksand;
     font-style: normal;
@@ -45,8 +58,31 @@
 }
 
 .signoutbtn:hover {
-    background-color: rgb(206, 206, 206);
-    color: #1294F2;
+    color: #ffffff;
     cursor: pointer;
-    border: 1px solid #1294F2;
+    
+    box-shadow: 2px 2px;
+}
+
+.savebtn {
+    padding: 15px 30px;
+    border: none;
+    margin: 10px;
+    margin-top: 1vh;
+    color: black;
+    background-color: #1294F2;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    width: 10vw;
+    height: 5vh;
+    font-family: Quicksand;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.savebtn:hover {
+    color: #ffffff;
+    cursor: pointer;
+    box-shadow: 2px 2px;
 }

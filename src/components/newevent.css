@@ -275,9 +275,12 @@ CSS FILE >_<
   }
 }
 .dashboard__wrapper .dashboard__body .start__block {
-  border: 0.1rem solid #fff;
+  border: 0.1rem solid #000000;
   padding: 2rem;
   margin: 2vh auto;
+  border: 2px solid rgb(150, 150, 150);
+  background-color: rgba(164, 164, 164, 0.406);
+  box-shadow: 5px 5px rgba(164, 164, 164, 0.253);
 }
 @media screen and (max-width: 767px) {
   .dashboard__wrapper .dashboard__body .start__block {
@@ -323,7 +326,7 @@ CSS FILE >_<
 
 .dashboard__wrapper .dashboard__body .start__block .form_header {
   display: flex;
-  color: #fff;
+  color: #000000;
   align-items: center;
   gap: 2rem;
   margin-bottom: 3rem;

@@ -39,7 +39,6 @@ export default function account() {
     // you have one. Use User.getToken() instead.
     const uid = user.uid;
 
-    alert(displayName);
   }
 
   return (
@@ -47,6 +46,7 @@ export default function account() {
     <div>
 
         <Navbar />
+        
         <div class ="mainaccountdiv">
             
 
@@ -63,7 +63,9 @@ export default function account() {
 
           </div>
 
+          <button class = "savebtn" >Save</button>
           <button class = "signoutbtn" onClick={() => auth.signOut()}>Sign out</button>
+
             
         </div>
     </div>

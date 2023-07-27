@@ -2,10 +2,24 @@
     margin-top: 0vh;
     padding: 5px;
     text-align: center;
-    border: 2px solid rgb(24, 24, 24);
-    background-color: rgba(164, 164, 164, 0.406);
-    border: 2px solid rgb(150, 150, 150);
-    box-shadow: 5px 5px rgba(164, 164, 164, 0.253);
+    height: 15vh;
+}
+
+.locationdiv h2 {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.4rem;
+    line-height: normal;
+    font-family: Rubik;
+}
+
+
+.locationdiv h4 {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.2rem;
+    line-height: normal;
+    font-family: Rubik;
 }
 
 .locationbtnatoffice {
@@ -13,7 +27,7 @@
     margin: 2vh;
     border: none;
     width: 10vh;
-    height: 15vh;
+    height: 10vh;
     font-size: 20px;
     border-radius: 5px;
     font-family: Quicksand !important;
@@ -36,7 +50,7 @@
     margin: 2vh;
     border: none;
     width: 10vh;
-    height: 15vh;
+    height: 10vh;
     font-size: 20px;
     border-radius: 5px;
     font-family: Quicksand !important;

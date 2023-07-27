@@ -72,15 +72,15 @@ const Register = () => {
         <div class ="registerdiv">
             
 
-            <h2>Register</h2>  
+            <h2>Register for an account</h2>  
 
 
-            <form onSubmit={SignUp}>
-              <input value={formData.username} onChange={handleInputChange} type="text" id="username" name="username" placeholder="Username" />
-              <input value={formData.email} onChange={handleInputChange} type="text" id="email" name="email" placeholder="E-mail" />
-              <input value={formData.password} onChange={handleInputChange} type="password" id="password" name="password" placeholder="Password" />
+            <form class ="registerform" onSubmit={SignUp}>
+              <input class = "usernameinput" value={formData.username} onChange={handleInputChange} type="text" id="username" name="username" placeholder="Username" />
+              <input class = "emailinput" value={formData.email} onChange={handleInputChange} type="text" id="email" name="email" placeholder="E-mail" />
+              <input class = "passwordinput" value={formData.password} onChange={handleInputChange} type="password" id="password" name="password" placeholder="Password" />
 
-              <input type="submit" id="signUp" name="signUp" value="Sign Up" />
+              <input type="submit" id="signUp" name="signUp" value="Register" />
 
             </form>
 

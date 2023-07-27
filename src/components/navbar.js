@@ -11,7 +11,7 @@ export default function navbar() {
         <ul>
             
             <a href='https://www.sap.com'>
-                <li id="saplogonavbar"></li>
+                <li title="SAP Website" id="saplogonavbar"></li>
             </a>
 
             <label class="switch">
@@ -42,7 +42,7 @@ export default function navbar() {
 
 function darkmode() {
 
-    var color = "#41a3ffe0";
+    var color = "#FFFFFF";
     var black = "#00000000";
     var background = document.getElementById("background");
     var toggle = document.getElementById("colormode");
@@ -50,12 +50,12 @@ function darkmode() {
     toggle.onchange = function() {
         if ( toggle.checked === false ) {
             
-            background.style.background = black;
+            background.style.background = color;
         }
 
         if ( toggle.checked === true ) {
             
-            background.style.background = color;
+            background.style.background = black;
         }
     };
 }
