@@ -2,7 +2,7 @@
 import './login.css';
 
 // Import the functions you need from the SDKs you need
-
+import { useNavigate  } from 'react-router-dom';
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
 import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-database.js";
 import { getAuth,signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js";
@@ -10,9 +10,10 @@ import React, { useState } from 'react';
 
 const Login = () => {
 
-  
+  const navigate = useNavigate();
 
-    const firebaseConfig = {
+  
+  const firebaseConfig = {
         // Your Firebase configuration here
         apiKey: "AIzaSyCf8LYQfeurGdAvB5Uu_eeQIVoWyl6Z3IY",
         authDomain: "test-30bf7.firebaseapp.com",
@@ -24,25 +25,25 @@ const Login = () => {
         measurementId: "G-PMRE4PWB4B"
     };
 
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const database = getDatabase(app);
-    const auth = getAuth();
-
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const database = getDatabase(app);
+  const auth = getAuth();
+   
 
   const handleSubmit = (event) => {
     event.preventDefault();
     
 
-    var loginEmail = document.getElementById('loginEmail').current.value;
-    var loginPassword = document.getElementById('loginPassword').current.value;
+    var loginEmail = document.getElementById('loginEmail').value;
+    var loginPassword = document.getElementById('loginPassword').value;
 
     signInWithEmailAndPassword(auth, loginEmail, loginPassword)
             .then((userCredential) => {
                 // Signed in successfully
                 const user = userCredential.user;
-                alert('User logged in!');
-                // You can now redirect the user to the logged-in area or perform other actions.
+                //redirect the user to the logged-in area or perform other actions.
+                navigate("/");
             })
             .catch((error) => {
                 const errorMessage = error.message;
@@ -81,14 +82,14 @@ const Login = () => {
             
             <h2>WhereAmIAt</h2>
           
-              <div onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit}>
 
-                  <input class = "logintext" id="loginEmail"  type = "text"/>
-                  <input  class = "logintext" type="password" id="loginPassword"/>
+                  <input class = "logintext" id="loginEmail"  placeholder="Email" type = "text"/>
+                  <input  class = "logintext" type="password" placeholder = "Password" id="loginPassword"/>
 
                   <input class = "loginbutton" type="submit" id="loginButton" name="loginbutton" value="Log In" />
                   
-              </div>
+              </form>
 
               <h3>Don't have an account? <a class = "registerlink" href = "/register">Register here</a></h3>
             

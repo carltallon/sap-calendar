@@ -1,5 +1,6 @@
 import './account.css';
 import Navbar from '../components/navbar.js';
+import Loginenforcer from "../components/loginenforcer.js";
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
 import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-database.js";
@@ -44,32 +45,36 @@ export default function account() {
   return (
 
     <div>
+      { user ? 
+    
+        <div>
+          <Navbar />
 
-        <Navbar />
+            <div class ="mainaccountdiv">
+                
 
-        <div class ="mainaccountdiv">
-            
+              <h3>Manage your Account</h3>
 
-          <h3>Manage your Account</h3>
+              <div class ="accountinfoholder">
 
-          <div class ="accountinfoholder">
+                <div class = "accountitem">Name</div>
+                <input class = "accountinfoitem"></input>
+                <div class = "accountitem">Email</div>
+                <input class = "accountinfoitem"></input>
+                <div class = "accountitem">Password</div>
+                <input class = "accountinfoitem"></input>
 
-            <div class = "accountitem">Name</div>
-            <input class = "accountinfoitem"></input>
-            <div class = "accountitem">Email</div>
-            <input class = "accountinfoitem"></input>
-            <div class = "accountitem">Password</div>
-            <input class = "accountinfoitem"></input>
+              </div>
 
+              <button class = "savebtn" >Save</button>
+              <button class = "signoutbtn" onClick={() => auth.signOut()}>Sign out</button>    
+            </div>
           </div>
 
-          <button class = "savebtn" >Save</button>
-          <button class = "signoutbtn" onClick={() => auth.signOut()}>Sign out</button>
 
-            
-        </div>
+        : <Loginenforcer />}
+
     </div>
-    
 
   );
 }

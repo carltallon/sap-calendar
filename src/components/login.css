@@ -55,8 +55,18 @@
 	cursor: pointer;
 }
 
+.loginenforcer {
+	margin: 40vh auto;
+	width: 30vw;
+	font-size: 1.7rem;
+	text-align: center;
+}
 
+.loginenforcer a {
+	text-decoration: none;
+	color: #1294F2;
 
+}
 
 .registerlink {
 	text-decoration: underline;
