@@ -10,6 +10,7 @@
     font-weight: 700;
     font-size: 1.4rem;
     line-height: normal;
+    margin: 5vh;
     font-family: Rubik;
 }
 
@@ -66,4 +67,13 @@
 .locationbtnathome:hover {
     cursor: pointer;
     border: 1px solid grey;
+}
+
+
+@media screen and (max-width: 1200px) {
+  
+
+    .locationdiv {
+        height: 35vh;
+    }
 }

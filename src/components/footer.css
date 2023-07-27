@@ -8,9 +8,13 @@ footer {
     background-color: rgba(146, 146, 146, 0.363);
   }
 
-@media screen and (min-width: 700px) {
-  .footer {
-      margin-top: 70vh;
 
+  
+@media screen and (max-width: 1200px) {
+  
+  footer {
+    margin-top: 100vh;
   }
+
+  
 }

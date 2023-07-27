@@ -60,9 +60,13 @@
   }
 
 
-  @media screen and (min-width: 700px) {
-    .upcomingeventsbutton {
-      font-size: 1rem;
+
+  @media screen and (max-width: 1200px) {
   
+  
+    .upcomingeventsbutton {
+      width: 40vw;
     }
+  
+    
   }

@@ -10,9 +10,9 @@ body {
   display: grid;
   grid-template-columns: 25vw 65vw;
   font-weight: 400;
-    font-size: 1.2rem;
-    line-height: normal;
-    font-family: Rubik;
+  font-size: 1.2rem;
+  line-height: normal;
+  font-family: Rubik;
 }
 
 #calendardiv {
@@ -132,23 +132,19 @@ days not in month
   
   .calendarholdermain {
     grid-template-columns: auto;
-    max-width: 90vw;
   }
 
-}
+  #calendardiv {
+    width: 90vw;
+  }
 
-@media screen and (max-width: 1400px) {
+  .sidedivmain {
+    width: 85vw;
+  }
+
+  .upcomingeventsdiv {
+    width: 45vw;
+  }
+
   
-  .calendarholdermain {
-    
-  }
-
-}
-
-
-@media screen and (max-width: 800px) {
-
-  .calendarholdermain {
-    max-width: 50vw;
-  }
 }
