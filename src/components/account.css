@@ -86,3 +86,48 @@
     cursor: pointer;
     box-shadow: 2px 2px;
 }
+
+@media screen and (max-width: 1200px) {
+  
+    .savebtn, .signoutbtn {
+        width: 15vw;
+    }
+
+    .accountinfoitem {
+        width: 25vw;
+    }
+
+    .accountinfoholder {
+        max-width: 40vw;
+    }
+  
+    
+  }
+
+
+  @media screen and (max-width: 800px) {
+  
+    .savebtn, .signoutbtn {
+        width: 25vw;
+    }
+
+    .accountinfoitem {
+        width: 40vw;
+    }
+
+    .accountinfoholder {
+        max-width: 40vw;
+    }
+  
+    .accountinfoholder {
+        display: grid;
+        margin: 5vh auto;
+        grid-template-columns: 40vw;
+        width: 40vw;
+        text-align: center;
+    }
+
+    .accountitem {
+        width: 40vw;
+    }
+  }
