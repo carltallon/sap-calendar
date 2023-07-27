@@ -46,7 +46,7 @@ export default function account() {
     <div>
 
         <Navbar />
-        
+
         <div class ="mainaccountdiv">
             
 

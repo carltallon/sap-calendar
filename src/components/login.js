@@ -30,10 +30,12 @@ const Login = () => {
     const auth = getAuth();
 
 
-  function handleSubmit() {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    
 
-    var loginEmail = document.getElementById('loginEmail').value;
-    var loginPassword = document.getElementById('loginPassword').value;
+    var loginEmail = document.getElementById('loginEmail').current.value;
+    var loginPassword = document.getElementById('loginPassword').current.value;
 
     signInWithEmailAndPassword(auth, loginEmail, loginPassword)
             .then((userCredential) => {
@@ -79,14 +81,14 @@ const Login = () => {
             
             <h2>WhereAmIAt</h2>
           
-              <form onSubmit={handleSubmit}>
+              <div onSubmit={handleSubmit}>
 
                   <input class = "logintext" id="loginEmail"  type = "text"/>
                   <input  class = "logintext" type="password" id="loginPassword"/>
 
                   <input class = "loginbutton" type="submit" id="loginButton" name="loginbutton" value="Log In" />
                   
-              </form>
+              </div>
 
               <h3>Don't have an account? <a class = "registerlink" href = "/register">Register here</a></h3>
             
