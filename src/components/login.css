@@ -27,8 +27,14 @@
   font-weight: 400;
 }
 
+.loginform {
+	display: grid; 
+	grid-template-columns: auto;
+	gap: 1vh;
+}
+
 .logintext {
-  margin: 15px;
+margin: 25px auto;
   width: 25vw;
   height: 50px;
   font-size: 25px;

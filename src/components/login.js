@@ -82,7 +82,7 @@ const Login = () => {
             
             <h2>WhereAmIAt</h2>
           
-              <form onSubmit={handleSubmit}>
+              <form  class= "loginform" onSubmit={handleSubmit}>
 
                   <input class = "logintext" id="loginEmail"  placeholder="Email" type = "text"/>
                   <input  class = "logintext" type="password" placeholder = "Password" id="loginPassword"/>

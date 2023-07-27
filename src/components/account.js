@@ -25,12 +25,10 @@ export default function account() {
 
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
-
   const auth = getAuth();
   const user = auth.currentUser;
   if (user !== null) {
     // The user object has basic properties such as display name, email, etc.
-    const displayName = user.displayName;
     const email = user.email;
     const photoURL = user.photoURL;
     const emailVerified = user.emailVerified;
@@ -38,7 +36,10 @@ export default function account() {
     // The user's ID, unique to the Firebase project. Do NOT use
     // this value to authenticate with your backend server, if
     // you have one. Use User.getToken() instead.
-    const uid = user.uid;
+    const uid = user.uid
+
+    // Set the value of the input element to the value of the variable
+    //document.getElementById("emailholder").value = email;
 
   }
 
@@ -57,10 +58,8 @@ export default function account() {
 
               <div class ="accountinfoholder">
 
-                <div class = "accountitem">Name</div>
-                <input class = "accountinfoitem"></input>
                 <div class = "accountitem">Email</div>
-                <input class = "accountinfoitem"></input>
+                <input type = "text" id = "emailholder" class = "accountinfoitem"></input>
                 <div class = "accountitem">Password</div>
                 <input class = "accountinfoitem"></input>
 
