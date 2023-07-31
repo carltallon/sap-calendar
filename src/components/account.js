@@ -3,9 +3,8 @@ import Navbar from '../components/navbar.js';
 import Loginenforcer from "../components/loginenforcer.js";
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
-import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-database.js";
-import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js";
-import { useAuthState } from 'react-firebase-hooks/auth';
+import { getAuth } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js";
+
 
 export default function account() {
 
@@ -27,21 +26,6 @@ export default function account() {
   const app = initializeApp(firebaseConfig);
   const auth = getAuth();
   const user = auth.currentUser;
-  if (user !== null) {
-    // The user object has basic properties such as display name, email, etc.
-    const email = user.email;
-    const photoURL = user.photoURL;
-    const emailVerified = user.emailVerified;
-
-    // The user's ID, unique to the Firebase project. Do NOT use
-    // this value to authenticate with your backend server, if
-    // you have one. Use User.getToken() instead.
-    const uid = user.uid
-
-    // Set the value of the input element to the value of the variable
-    //document.getElementById("emailholder").value = email;
-
-  }
 
   return (
 
@@ -54,14 +38,14 @@ export default function account() {
             <div class ="mainaccountdiv">
                 
 
-              <h3>Manage your Account</h3>
+              <h3>View your Account Details</h3>
 
               <div class ="accountinfoholder">
 
                 <div class = "accountitem">Email</div>
-                <input type = "text" id = "emailholder" class = "accountinfoitem"></input>
-                <div class = "accountitem">Password</div>
-                <input class = "accountinfoitem"></input>
+                <div type = "text" id = "emailholder" class = "accountinfoitem">{ user.email }</div>
+                <div class = "accountitem">Unique ID</div>
+                <div class = "accountinfoitem">{ user.uid } </div>
 
               </div>
 

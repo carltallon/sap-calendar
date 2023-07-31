@@ -35,8 +35,9 @@
 
 .accountinfoitem {
     padding: 10px;
-    width: 12vw;
+    width: 15vw;
     border-radius: 5px;
+    font-size: 1.2rem;
     border: 2px solid black;
 }
 
