@@ -42,20 +42,36 @@ export default function navbar() {
 
 function darkmode() {
 
-    var color = "#FFFFFF";
-    var black = "#00000000";
+    var whitecolor = "#FFFFFF";
+    var blackcolor = "#00000000";
     var background = document.getElementById("background");
     var toggle = document.getElementById("colormode");
+    var footer = document.getElementById("footer");
+    var upcomingeventsdiv = document.getElementById("upcomingeventsdiv");
+    var calendardiv = document.getElementById("calendardiv");
+    var navbar = document.getElementById("navigation");
 
     toggle.onchange = function() {
         if ( toggle.checked === false ) {
+            background.style.background = whitecolor;
+            background.style.color = 'black';
+            footer.style.color = 'black';
+            footer.style.borderTop = '1px solid #4c4c4cbe';
+            upcomingeventsdiv.style.borderTop = '2px solid black';
+            calendardiv.style.color = 'black';
+            navbar.style.borderBottom = '1px solid #515151';
             
-            background.style.background = color;
         }
 
         if ( toggle.checked === true ) {
             
-            background.style.background = black;
+            background.style.background = blackcolor;
+            background.style.color = whitecolor;
+            footer.style.color = 'white';
+            footer.style.borderTop = '1px solid white';
+            upcomingeventsdiv.style.borderTop = '2px solid white';
+            calendardiv.style.color = 'white';
+            navbar.style.borderBottom = '1px solid white';
         }
     };
 }

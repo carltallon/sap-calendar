@@ -62,7 +62,7 @@ function Sapcalendar() {
           <Location />
           
           
-          <div class="upcomingeventsdiv">
+          <div class="upcomingeventsdiv" id = "upcomingeventsdiv">
 
             <h2>Your upcoming events</h2>
 
