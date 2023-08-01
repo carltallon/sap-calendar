@@ -4,8 +4,8 @@ import Navbar from "../components/navbar.js";
 import Loginenforcer from "../components/loginenforcer.js"
 
 import { Link } from "react-router-dom";
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js";
+import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
 import { useAuthState } from 'react-firebase-hooks/auth';
 
 export default function Seat() {
@@ -38,11 +38,16 @@ export default function Seat() {
       { user ? 
       <div>
         <Navbar />
+        <div class = "mainseatdiv">
+          <div class ="seatdiv">
 
-        <div class ="seatdiv">
+              <h2>Seating</h2>
 
-            <h2>Seating</h2>
+              
 
+          </div>
+
+          <div></div>
         </div>
       </div>
 

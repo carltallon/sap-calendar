@@ -3,16 +3,14 @@ import './login.css';
 
 // Import the functions you need from the SDKs you need
 import { useNavigate  } from 'react-router-dom';
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
-import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-database.js";
-import { getAuth,signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js";
+import { initializeApp } from "firebase/app";
+import { getDatabase, set, ref } from "firebase/database";
+import { getAuth,signInWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from 'react';
 
 const Login = () => {
 
   const navigate = useNavigate();
-
-  
   const firebaseConfig = {
         // Your Firebase configuration here
         apiKey: "AIzaSyCf8LYQfeurGdAvB5Uu_eeQIVoWyl6Z3IY",
@@ -33,8 +31,6 @@ const Login = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    
-
     var loginEmail = document.getElementById('loginEmail').value;
     var loginPassword = document.getElementById('loginPassword').value;
 

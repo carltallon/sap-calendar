@@ -3,8 +3,8 @@ import './home.css';
 import Login from "../components/login.js";
 import SAPCalendar from "../components/sapcalendar.js";
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
-import { getAuth } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js";
+import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
 import { useAuthState } from 'react-firebase-hooks/auth';
 
 

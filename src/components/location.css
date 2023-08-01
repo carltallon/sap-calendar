@@ -35,7 +35,7 @@
     font-style: normal !important;
     font-weight: 500 !important;
     line-height: normal !important;
-    background: url(workingfromofficeblack.png);
+    background: url(../images/workingfromofficeblack.png);
     background-repeat: no-repeat;
     background-size:contain;
 }
@@ -58,7 +58,7 @@
     font-style: normal !important;
     font-weight: 500 !important;
     line-height: normal !important;
-    background: url(workingfromhomeblack.png);
+    background: url(../images/workingfromhomeblack.png);
     background-repeat: no-repeat;
     background-size:contain;
 }

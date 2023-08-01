@@ -1,8 +1,8 @@
 import './register.css';
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
-import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-database.js";
-import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js";
+import { initializeApp } from "firebase/app";
+import { getDatabase, set, ref } from "firebase/database";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from 'react';
 
 const firebaseConfig = {

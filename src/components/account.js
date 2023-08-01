@@ -2,8 +2,8 @@ import './account.css';
 import Navbar from '../components/navbar.js';
 import Loginenforcer from "../components/loginenforcer.js";
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
-import { getAuth } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js";
+import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
 
 
 export default function account() {

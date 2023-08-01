@@ -9,7 +9,7 @@
 }
 
 .saplogodivlogin {
-  background: url(saplogonew.png);
+  background: url(../images/saplogonew.png);
   background-repeat: no-repeat;
   background-size: cover;
   width: 140px;
@@ -3541,7 +3541,7 @@ margin: 25px auto;
 			animation: animation1 linear 20s infinite;
 			height: 100px;
 			width: 100px;
-			background-image: url(sapcalendarblacktransparent.png);
+			background-image: url(../images/sapcalendarblacktransparent.png);
   }
   
   .elem2 {
@@ -3551,7 +3551,7 @@ margin: 25px auto;
 			animation: animation2 linear 18s infinite;
 			height: 100px;
 			width: 100px;
-			background-image: url(sapcalendarblacktransparent.png);
+			background-image: url(../images/sapcalendarblacktransparent.png);
   }
   
   .elem3 {
@@ -3561,7 +3561,7 @@ margin: 25px auto;
 			animation: animation3 linear 20s infinite;
 			height: 100px;
 			width: 100px;
-			background-image: url(sapcalendarblacktransparent.png);
+			background-image: url(../images/sapcalendarblacktransparent.png);
   }
   
   .elem4 {
@@ -3571,7 +3571,7 @@ margin: 25px auto;
 			animation: animation4 linear 17s infinite;
 			height: 100px;
 			width: 100px;
-			background-image: url(sapcalendarblacktransparent.png);
+			background-image: url(../images/sapcalendarblacktransparent.png);
   }
   
   .elem5 {
@@ -3581,7 +3581,7 @@ margin: 25px auto;
 			animation: animation5 linear 19s infinite;
 			height: 100px;
 			width: 100px;
-			background-image: url(sapcalendarblacktransparent.png);
+			background-image: url(../images/sapcalendarblacktransparent.png);
   }
   
   .elem6 {
@@ -3591,7 +3591,7 @@ margin: 25px auto;
 			animation: animation6 linear 20s infinite;
 			height: 100px;
 			width: 100px;
-			background-image: url(sapcalendarblacktransparent.png);
+			background-image: url(../images/sapcalendarblacktransparent.png);
   }
   
   .elem7 {
@@ -3601,7 +3601,7 @@ margin: 25px auto;
 			animation: animation7 linear 19s infinite;
 			height: 100px;
 			width: 100px;
-			background-image: url(sapcalendarblacktransparent.png);
+			background-image: url(../images/sapcalendarblacktransparent.png);
   }
   
   .elem8 {
@@ -3611,7 +3611,7 @@ margin: 25px auto;
 			animation: animation8 linear 16s infinite;
 			height: 100px;
 			width: 100px;
-			background-image: url(sapcalendarblacktransparent.png);
+			background-image: url(../images/sapcalendarblacktransparent.png);
   }
   
   .elem9 {
@@ -3621,7 +3621,7 @@ margin: 25px auto;
 			animation: animation9 linear 20s infinite;
 			height: 100px;
 			width: 100px;
-			background-image: url(sapcalendarblacktransparent.png);
+			background-image: url(../images/sapcalendarblacktransparent.png);
   }
   
   .elem10 {
@@ -3631,7 +3631,7 @@ margin: 25px auto;
 			animation: animation10 linear 16s infinite;
 			height: 100px;
 			width: 100px;
-			background-image: url(sapcalendarblacktransparent.png);
+			background-image: url(../images/sapcalendarblacktransparent.png);
   }
   
   .elem11 {
@@ -3641,7 +3641,7 @@ margin: 25px auto;
 			animation: animation11 linear 20s infinite;
 	height: 100px;
 	width: 100px;
-	background-image: url(sapcalendarblacktransparent.png);
+	background-image: url(../images/sapcalendarblacktransparent.png);
   }
   
   .elem12 {
@@ -3651,7 +3651,7 @@ margin: 25px auto;
 			animation: animation12 linear 18s infinite;
 			height: 100px;
 			width: 100px;
-			background-image: url(sapcalendarblacktransparent.png);
+			background-image: url(../images/sapcalendarblacktransparent.png);
   }
   
   .elem13 {
@@ -3661,7 +3661,7 @@ margin: 25px auto;
 			animation: animation13 linear 20s infinite;
 			height: 100px;
 			width: 100px;
-			background-image: url(sapcalendarblacktransparent.png);
+			background-image: url(../images/sapcalendarblacktransparent.png);
   }
   
   .elem14 {
@@ -3671,7 +3671,7 @@ margin: 25px auto;
 			animation: animation14 linear 20s infinite;
 			height: 100px;
 			width: 100px;
-			background-image: url(sapcalendarblacktransparent.png);
+			background-image: url(../images/sapcalendarblacktransparent.png);
   }
   
   .elem15 {
@@ -3681,7 +3681,7 @@ margin: 25px auto;
 			animation: animation15 linear 19s infinite;
 			height: 100px;
 			width: 100px;
-			background-image: url(sapcalendarblacktransparent.png);
+			background-image: url(../images/sapcalendarblacktransparent.png);
   }
   
   .elem16 {
@@ -3691,7 +3691,7 @@ margin: 25px auto;
 			animation: animation16 linear 18s infinite;
 			height: 100px;
 			width: 100px;
-			background-image: url(sapcalendarblacktransparent.png);
+			background-image: url(../images/sapcalendarblacktransparent.png);
   }
   
   .elem17 {
@@ -3701,7 +3701,7 @@ margin: 25px auto;
 			animation: animation17 linear 19s infinite;
 			height: 100px;
 			width: 100px;
-			background-image: url(sapcalendarblacktransparent.png);
+			background-image: url(../images/sapcalendarblacktransparent.png);
   }
   
   .elem18 {
@@ -3711,7 +3711,7 @@ margin: 25px auto;
 			animation: animation18 linear 17s infinite;
 	height: 100px;
 	width: 100px;
-	background-image: url(sapcalendarblacktransparent.png);
+	background-image: url(../images/sapcalendarblacktransparent.png);
   }
   
   .elem19 {
@@ -3721,7 +3721,7 @@ margin: 25px auto;
 			animation: animation19 linear 20s infinite;
 	height: 100px;
 	width: 100px;
-	background-image: url(sapcalendarblacktransparent.png);
+	background-image: url(../images/sapcalendarblacktransparent.png);
   }
   
   .anim-delay1 {

@@ -1,6 +1,7 @@
 /*
 SAP Calendar app Carl Tallon.
 All other points of reference are available in the README.md.
+ALL IMPORTS MUST BE MODULARRRRRR
 */
 
 import { Route, Routes } from "react-router-dom";
@@ -13,6 +14,7 @@ import Account from "./components/account";
 import Seat from "./components/seat";
 import Newevent from "./components/newevent";
 import Register from "./components/register";
+import EventDetails from './components/eventdetails';
 
 function App() {
   return (
@@ -23,6 +25,7 @@ function App() {
         <Route path="/account" element={<Account />} />
         <Route path="/seat" element={<Seat />} />
         <Route path="/create" element={<Newevent />} />
+        <Route path="/event/:eventId" component={EventDetails} />
         <Route path="/register" element={<Register />} />
       </Routes>
       <Footer />

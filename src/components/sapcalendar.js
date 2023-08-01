@@ -3,17 +3,21 @@ import getDay from "date-fns/getDay";
 import parse from "date-fns/parse";
 import startOfWeek from "date-fns/startOfWeek";
 import './calendar.css';
+
+import { getFirestore } from "firebase/firestore";
+import { initializeApp } from "firebase/app";
+
 import { Calendar, dateFnsLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
-import { initializeApp } from "firebase/app";
 import { getAuth  } from "firebase/auth";
 
 import Buttons from "../components/buttons.js";
 import Navbar from "../components/navbar.js";
 import Location from "../components/location.js";
 import React, { useState } from "react";
-import { getFirestore } from "firebase/firestore";
 import { collection, query, where, getDocs } from "firebase/firestore";
+
+
 
 
 const locales = {
@@ -27,6 +31,7 @@ const localizer = dateFnsLocalizer({
   getDay,
   locales,
 });
+
 
 const firebaseConfig = {
   // Your Firebase configuration here
@@ -45,7 +50,7 @@ const events = [];
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-const auth = getAuth();
+const auth = getAuth(app);
 const user = auth.currentUser;
 
 const querySnapshot = await getDocs(collection(db, "Events"));
@@ -67,8 +72,6 @@ for (let i = 0; i < events.length; i++) {
   events[i].start = convertFirestoreTimestampToDate(events[i].start);
   events[i].end = convertFirestoreTimestampToDate(events[i].end);
 }
-
-console.log(events);
 
 const eventNames = events.slice(0, 3).map(({ title }) => title)
 

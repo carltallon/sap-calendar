@@ -4,10 +4,13 @@ import Navbar from "../components/navbar.js";
 import Loginenforcer from "../components/loginenforcer.js"
 
 import { Link } from "react-router-dom";
-import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js";
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
-import { getDatabase, set, ref, get, update, remove, child } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-database.js";
+import { getAuth } from "firebase/auth";
+
+import { useNavigate  } from 'react-router-dom';
+import { collection, addDoc } from "firebase/firestore"; 
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
+
 
 
 export default function Newevent() {
@@ -23,36 +26,53 @@ export default function Newevent() {
         appId: "1:381008086519:web:f5fce4c537e56933ca1af2",
         measurementId: "G-PMRE4PWB4B"
     };
-    
-    
-    
+      
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    const navigate = useNavigate();
+    
     const auth = getAuth();
-    const db = getDatabase();
 
-    const[user] = useAuthState(auth);
+    const user = auth.currentUser;
+
+    const createventDB = (event) => {
+        event.preventDefault(); // Prevent the default form submission behavior
+
+        const startdateInput = document.getElementById('startdate').value;
+        const starttimeInput = document.getElementById('starttime').value;
+
+        const enddateInput = document.getElementById('enddate').value;
+        const endtimeInput = document.getElementById('endtime').value;
+
+        console.log(endtimeInput);
+        console.log(enddateInput);
+
+        // Combine date and time inputs into a JavaScript Date object
+        const startdateTimeString = `${startdateInput}T${starttimeInput}:00`;
+        const start = new Date(startdateTimeString);
+
+        console.log(startdateTimeString);
+
+        const enddateTimeString = `${enddateInput}T${endtimeInput}:00`;
+        const end = new Date(enddateTimeString);
+
+        const title = document.getElementById('EventTitle').value;
+
+        const { uid } = auth.currentUser;
 
 
-    var eventbox = document.getElementById("EventTitle");
-    var datebox = document.getElementById("DateBox");
-    var aboutbox = document.getElementById("AboutBox");
-    var typebox = document.getElementById("EventType");
-
-    function InsertData() {
-        set(ref(db, "The User Events/"), {
-            EventName: eventbox.value,
-            DateEvent: datebox.value,
-            aboutEvent: aboutbox.value,
-            TypeofEvent: typebox.value
-        })
-        .then(() => {  
-            alert("Data stored");
-        })
-        .catch((error) => {
-            alert("Didnt work, error: " + error);
+        const eventsref = addDoc(collection(db, "Events"), {
+            title: title,
+            start: start,
+            end: end
         });
+
+        navigate("/");
+
     }
+        
 
   return (
     <div>
@@ -63,7 +83,7 @@ export default function Newevent() {
         <div class="dashboard__wrapper">
             <div class="dashboard__body">
                 <div class="start__block">
-                    <form action="#">
+                    <form id = "eventform" onSubmit={createventDB}>
                         <div class="form_header">
                             Create A New Event
                         </div>
@@ -75,7 +95,7 @@ export default function Newevent() {
                                     </svg>
                                 </label>
                                 <div class="input-group">
-                                    <input  id = "EventTitle" type="text" placeholder="Add Title" class="form-control border-bottom" />
+                                    <input required id = "EventTitle" type="text" placeholder="Add Title" class="form-control border-bottom" />
                                 </div>
                             </div>
                             <div class="form-group d-flex">
@@ -83,31 +103,39 @@ export default function Newevent() {
                                     
                                     <div class="row my-2rem">
                                         <div class="col-sm-4">
-                                            <input type="date" id="" class="form-control border" />
+                                            <input required type="date" id="startdate" class="form-control border" />
                                         </div>
                                         <div class="col-sm-4">
-                                            <select class="form-control border">
-                                                <option value="" selected>8:00 am</option>
-                                                <option value="">9:00 am</option>
-                                                <option value="">10:00 am</option>
-                                                <option value="">11:00 am</option>
-                                                <option value="">12:00 pm</option>
-                                                <option value="">01:00 pm</option>
+                                            <select required id = "starttime" class="form-control border">
+                                                <option value="08:00" selected>8:00 am</option>
+                                                <option value="09:00">9:00 am</option>
+                                                <option value="10:00">10:00 am</option>
+                                                <option value="11:00">11:00 am</option>
+                                                <option value="12:00">12:00 pm</option>
+                                                <option value="13:00">01:00 pm</option>
+                                                <option value="14:00">02:00 pm</option>
+                                                <option value="15:00">03:00 pm</option>
+                                                <option value="16:00">04:00 pm</option>
+                                                <option value="17:00">05:00 pm</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-4">
-                                            <input type="date" id="" class="form-control border" />
+                                            <input required type="date" id="enddate" class="form-control border" />
                                         </div>
                                         <div class="col-sm-4">
-                                            <select class="form-control border">
-                                                <option value="">8:00 am</option>
-                                                <option value="" selected>9:00 am</option>
-                                                <option value="">10:00 am</option>
-                                                <option value="">11:00 am</option>
-                                                <option value="">12:00 pm</option>
-                                                <option value="">01:00 pm</option>
+                                            <select required id="endtime" class="form-control border">
+                                                <option value="08:00">8:00 am</option>
+                                                <option value="09:00" selected>9:00 am</option>
+                                                <option value="10:00">10:00 am</option>
+                                                <option value="11:00">11:00 am</option>
+                                                <option value="12:00">12:00 pm</option>
+                                                <option value="13:00">01:00 pm</option>
+                                                <option value="14:00">02:00 pm</option>
+                                                <option value="15:00">03:00 pm</option>
+                                                <option value="16:00">04:00 pm</option>
+                                                <option value="17:00">05:00 pm</option>
                                             </select>
                                         </div>
                                     </div>
@@ -156,7 +184,7 @@ export default function Newevent() {
                             <Link to="/">
                             <button type="button" class="btn-cancel">Cancel</button>
                             </Link>
-                            <button type="submit" class="btn_save_schedule" onClick={InsertData}>
+                            <button type="submit" class="btn_save_schedule">
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M19.3724 4.37237L15.6276 0.627634C15.2258 0.22577 14.6807 2.97177e-06 14.1124 0H2.14286C0.959375 0 0 0.959375 0 2.14286V17.8571C0 19.0406 0.959375 20 2.14286 20H17.8571C19.0406 20 20 19.0406 20 17.8571V5.88759C20 5.31927 19.7742 4.77423 19.3724 4.37237ZM10 17.1429C8.42205 17.1429 7.14286 15.8637 7.14286 14.2857C7.14286 12.7078 8.42205 11.4286 10 11.4286C11.5779 11.4286 12.8571 12.7078 12.8571 14.2857C12.8571 15.8637 11.5779 17.1429 10 17.1429ZM14.2857 3.54821V8.03571C14.2857 8.33156 14.0458 8.57143 13.75 8.57143H3.39286C3.09701 8.57143 2.85714 8.33156 2.85714 8.03571V3.39286C2.85714 3.09701 3.09701 2.85714 3.39286 2.85714H13.5946C13.7367 2.85714 13.873 2.91357 13.9734 3.01406L14.1288 3.16942C14.1785 3.21916 14.218 3.27821 14.2449 3.34321C14.2719 3.4082 14.2857 3.47786 14.2857 3.54821Z" fill="black"/>
                                 </svg>
@@ -173,3 +201,5 @@ export default function Newevent() {
     </div>
   );
 }
+
+
