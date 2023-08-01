@@ -46,14 +46,10 @@ export default function Newevent() {
         const enddateInput = document.getElementById('enddate').value;
         const endtimeInput = document.getElementById('endtime').value;
 
-        console.log(endtimeInput);
-        console.log(enddateInput);
 
         // Combine date and time inputs into a JavaScript Date object
         const startdateTimeString = `${startdateInput}T${starttimeInput}:00`;
         const start = new Date(startdateTimeString);
-
-        console.log(startdateTimeString);
 
         const enddateTimeString = `${enddateInput}T${endtimeInput}:00`;
         const end = new Date(enddateTimeString);
@@ -61,7 +57,6 @@ export default function Newevent() {
         const title = document.getElementById('EventTitle').value;
 
         const { uid } = auth.currentUser;
-
 
         const eventsref = addDoc(collection(db, "Events"), {
             title: title,

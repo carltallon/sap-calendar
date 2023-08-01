@@ -9,8 +9,9 @@ import { initializeApp } from "firebase/app";
 
 import { Calendar, dateFnsLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
-import { getAuth  } from "firebase/auth";
+import { getAuth, onAuthStateChanged  } from "firebase/auth";
 
+import { Link } from 'react-router-dom';
 import Buttons from "../components/buttons.js";
 import Navbar from "../components/navbar.js";
 import Location from "../components/location.js";
@@ -48,13 +49,28 @@ const events = [];
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth();
-const usercurrent = "Hjcb1KEfTkgclv7nHdrwtCtM1NS2";
-const querySnapshot = await getDocs(collection(db, "Events"), where("UserID", "==", usercurrent));
-querySnapshot.forEach((doc) => {
-  events.push(doc.data());
+const user = auth.currentUser;
+
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    // User is signed in
+    const uid = user.uid;
+    fillevents(uid);
+  } 
 });
 
-console.log(events);
+const fillevents = async (uid) => {
+  const eventsquery = query(collection(db, "Events"), where("UserID", "==", uid));
+  const querySnapshot = await getDocs(eventsquery);
+  querySnapshot.forEach((doc) => {
+    events.push(doc.data());
+  });
+
+  for (let i = 0; i < events.length; i++) {
+    events[i].start = convertFirestoreTimestampToDate(events[i].start);
+    events[i].end = convertFirestoreTimestampToDate(events[i].end);
+  }
+}
 
 // Function to convert timestamp to a JavaScript Date object
 const convertFirestoreTimestampToDate = (firestoreTimestamp) => {
@@ -66,15 +82,10 @@ const convertFirestoreTimestampToDate = (firestoreTimestamp) => {
 };
 
 
-for (let i = 0; i < events.length; i++) {
-  events[i].start = convertFirestoreTimestampToDate(events[i].start);
-  events[i].end = convertFirestoreTimestampToDate(events[i].end);
-}
-
-const eventNames = events.slice(0, 3).map(({ title }) => title)
 
 
-function Sapcalendar() {
+
+const Sapcalendar = () => {
 
   
   const [allEvents, setAllEvents] = useState(events);
@@ -96,7 +107,12 @@ function Sapcalendar() {
 
             <h2>Your upcoming events</h2>
 
-            {eventNames.map(title => <button class="upcomingeventsbutton"> <a>{title}</a></button>)}
+            {events.slice(0, 3).map(event => <button class="upcomingeventsbutton"> 
+
+            <Link to={`/event/$(event.title)}`}>{event.title}</Link>            
+
+            </button>)}
+
 
           </div>
         </div>

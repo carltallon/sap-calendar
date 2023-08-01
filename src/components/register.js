@@ -47,7 +47,7 @@ const Register = () => {
     const { email, password, username } = formData;
 
     // handle form submission here, for example, send data to the server
-    createUserWithEmailAndPassword(auth, email, password)
+    createUserWithEmailAndPassword(auth, username, email, password)
         .then((userCredential) => {
             // Signed up successfully
             const user = userCredential.user;

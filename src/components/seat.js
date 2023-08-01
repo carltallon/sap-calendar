@@ -34,7 +34,6 @@ const querySnapshot = await getDocs(collection(db, "Locations"));
 querySnapshot.forEach((doc) => {
   locations.push(doc.data());
 });
-console.log(locations);
 
 const usersathome = [];
 const usersinoffice = [];
