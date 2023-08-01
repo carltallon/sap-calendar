@@ -66,7 +66,8 @@ export default function Newevent() {
         const eventsref = addDoc(collection(db, "Events"), {
             title: title,
             start: start,
-            end: end
+            end: end,
+            UserID: uid
         });
 
         navigate("/");

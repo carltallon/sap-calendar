@@ -17,9 +17,6 @@ import Location from "../components/location.js";
 import React, { useState } from "react";
 import { collection, query, where, getDocs } from "firebase/firestore";
 
-
-
-
 const locales = {
   "en-US": require("date-fns/locale/en-US"),
 };
@@ -50,13 +47,14 @@ const events = [];
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-const auth = getAuth(app);
-const user = auth.currentUser;
-
-const querySnapshot = await getDocs(collection(db, "Events"));
+const auth = getAuth();
+const usercurrent = "Hjcb1KEfTkgclv7nHdrwtCtM1NS2";
+const querySnapshot = await getDocs(collection(db, "Events"), where("UserID", "==", usercurrent));
 querySnapshot.forEach((doc) => {
   events.push(doc.data());
 });
+
+console.log(events);
 
 // Function to convert timestamp to a JavaScript Date object
 const convertFirestoreTimestampToDate = (firestoreTimestamp) => {
