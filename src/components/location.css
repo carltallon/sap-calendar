@@ -40,6 +40,10 @@
     background-size:contain;
 }
 
+.locationbtnatoffice.active {
+    border: 1px solid black;
+}
+
 
 .locationbtnatoffice:hover {
     cursor: pointer;
@@ -63,6 +67,9 @@
     background-size:contain;
 }
 
+.locationbtnathome.active {
+    border: 1px solid black;
+}
 
 .locationbtnathome:hover {
     cursor: pointer;
@@ -75,5 +82,19 @@
 
     .locationdiv {
         height: 35vh;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+  
+
+    .locationdiv {
+        height: 45vh;
+    }
+
+    .locationbtnathome, .locationbtnatoffice {
+        width: 20vh;
+        height: 20vh;
+        margin-bottom: 20px;
     }
 }

@@ -4,6 +4,8 @@ import { getAuth  } from "firebase/auth";
 import { collection, addDoc } from "firebase/firestore"; 
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
+import { doc, deleteDoc } from "firebase/firestore";
+import { query, where, getDocs } from 'firebase/firestore';
 
 const firebaseConfig = {
     // Your Firebase configuration here
@@ -28,9 +30,9 @@ function location() {
         <h2>Your Location today?</h2>
         <h4>Let your coworkers know where you are working from today!</h4>
 
-        <button onClick = {workingfromhome} class = 'locationbtnathome'></button>
+        <button id = "locationbtnathome" onClick = {workingfromhome} class = 'locationbtnathome'></button>
 
-        <button onClick = {workingfromoffice} class = 'locationbtnatoffice'></button>
+        <button id = "locationbtnatoffice" onClick = {workingfromoffice} class = 'locationbtnatoffice'></button>
     </div>
     
 
@@ -44,23 +46,39 @@ function workingfromhome() {
 
   const auth = getAuth();
   
+  const locationbtnatoffice = document.getElementById('locationbtnatoffice');
+  const locationbtnathome = document.getElementById('locationbtnathome');
   const { uid } = auth.currentUser;
+
+  locationbtnatoffice.style.border = 'none';
+  locationbtnathome.style.border = '2px solid black';
+
   const currentDate = new Date();
   
+  deletelocations(uid, "Office");
+
   const locationRef = addDoc(collection(db, "Locations"), {
     location: "Home",
     UserID: uid,
     Date: currentDate
   });
 
+  
+
 }
 
 function workingfromoffice() {
 
     const auth = getAuth();
-    
+    const locationbtnatoffice = document.getElementById('locationbtnatoffice');
+    const locationbtnathome = document.getElementById('locationbtnathome');
     const { uid } = auth.currentUser;
+
+    locationbtnathome.style.border = 'none';
+    locationbtnatoffice.style.border = '2px solid black';
     
+    deletelocations(uid, "Home");
+
     const currentDate = new Date();
     const locationRef = addDoc(collection(db, "Locations"), {
       location: "Office",
@@ -69,3 +87,22 @@ function workingfromoffice() {
     });
 
 }
+
+const deletelocations = async (uid,location) => {
+  const eventsquery = query(collection(db, "Locations"), where("UserID", "==", uid), where("location", "==", location));
+  const querySnapshot = await getDocs(eventsquery);
+  console.log(querySnapshot.data);
+  // Check if there are matching documents
+  if (!querySnapshot.empty) {
+    // There is at least one matching document
+    // Assuming you want to delete all matching documents, you can loop through the documents
+    querySnapshot.forEach((doc) => {
+      deleteDoc(doc.ref);
+    });
+    console.log('Documents deleted successfully.');
+  } else {
+    // No matching documents found
+    console.log('No matching documents found.');
+  }
+
+};

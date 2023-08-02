@@ -23,6 +23,10 @@ export default function navbar() {
 
         <ul>
 
+            <NavLink className="eventnavbar" to="/create">
+                <i title="New Event" id = "neweventicon" class="fa fa-plus" aria-hidden="true"></i>
+            </NavLink>
+
             <NavLink className="accountnavbar" to="/">
                 <i title="Calendar" id = "calendaricon" class="fa fa-calendar" aria-hidden="true"></i>
             </NavLink>

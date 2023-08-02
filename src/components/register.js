@@ -4,7 +4,9 @@ import { initializeApp } from "firebase/app";
 import { getDatabase, set, ref } from "firebase/database";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from 'react';
+import { getFirestore } from "firebase/firestore";
 
+import { collection, addDoc } from "firebase/firestore"; 
 const firebaseConfig = {
     // Your Firebase configuration here
     apiKey: "AIzaSyCf8LYQfeurGdAvB5Uu_eeQIVoWyl6Z3IY",
@@ -21,8 +23,8 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 const auth = getAuth();
-
-
+// Initialize Firebase
+const db = getFirestore(app);
 //FUNCTION BEGINS
 const Register = () => {
 
@@ -47,13 +49,18 @@ const Register = () => {
     const { email, password, username } = formData;
 
     // handle form submission here, for example, send data to the server
-    createUserWithEmailAndPassword(auth, username, email, password)
+    createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             // Signed up successfully
             const user = userCredential.user;
             set(ref(database, 'users/' + user.uid), {
                 username: username,
                 email: email
+            });
+
+            const eventsref = addDoc(collection(db, "Usernames"), {
+              username: username,
+              UserID: user.uid
             });
             alert('User created!');
         })

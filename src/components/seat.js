@@ -41,10 +41,10 @@ const usersinoffice = [];
 
 for (let i = 0; i < locations.length; i++) {
 
-  if (locations[i].location == 'Home'){
+  if (locations[i].location === 'Home'){
     usersathome.push(locations[i].UserID);
   }
-  if (locations[i].location == 'Office'){
+  if (locations[i].location === 'Office'){
     usersinoffice.push(locations[i].UserID);
   }   
   
@@ -67,14 +67,14 @@ export default function Seat() {
               <h2>Seating</h2>
 
               <h2>Colleagues in Office</h2>
-              {usersinoffice.map(UserID => <button> <a>{UserID}</a></button>)}
+              {usersinoffice.map(UserID => <button class ="users"> <a>{UserID}</a></button>)}
 
               <h2>Colleagues at home </h2>
-              {usersathome.map(UserID => <button> <a>{UserID}</a></button>)}
+              {usersathome.map(UserID => <button class = "users"> <a>{UserID}</a></button>)}
 
           </div>
 
-          <div></div>
+          <div class = "seatingimgdiv"></div>
         </div>
       </div>
 

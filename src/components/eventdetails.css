@@ -1,6 +1,19 @@
 .eventdetailsdiv {
     width: 40vw;
+    font-size: 1.2rem;
     margin: 20vh auto;
-    padding: 1vh;
-    border: 2px solid red;
+    padding: 10vh;
+    border: 2px solid rgb(150, 150, 150);
+    background-color: rgba(164, 164, 164, 0.406);
+    box-shadow: 5px 5px rgba(164, 164, 164, 0.253);
+    text-align: center;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    font-family: Rubik;
+}
+
+.deleteeventbtn {
+    padding: 10px 20px;
+    margin: 1vh auto;
 }

@@ -14,7 +14,43 @@
     margin: 10vh auto;
     text-align: center;
     display: grid;
-    grid-template-columns: 40vw auto;
+    grid-template-columns: auto;
     border: 2px solid green;
     width: 80vw;
+}
+
+.users { 
+    padding: 20px;
+    font-size: 1rem;
+    border: none;
+    color: black;
+    background-color: #1294F2;
+    border-radius: 8px;
+    height: 5vh;
+    margin-top: 1vh;
+    font-family: Quicksand;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+
+}
+
+.users:hover {
+    cursor: pointer;
+}
+
+
+.seatingimgdiv {
+    padding: 10px 20px;
+    margin: 2vh;
+    border: 2px sold yellow;
+    border-radius: 5px;
+    width: 100vh;
+    font-family: Quicksand !important;
+    font-style: normal !important;
+    font-weight: 500 !important;
+    line-height: normal !important;
+    background: url(../images/CoE-seatinf.png);
+    background-repeat: no-repeat;
+    background-size:contain;
 }

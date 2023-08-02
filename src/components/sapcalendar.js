@@ -12,7 +12,6 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 import { getAuth, onAuthStateChanged  } from "firebase/auth";
 
 import { Link } from 'react-router-dom';
-import Buttons from "../components/buttons.js";
 import Navbar from "../components/navbar.js";
 import Location from "../components/location.js";
 import React, { useState } from "react";
@@ -70,6 +69,7 @@ const fillevents = async (uid) => {
     events[i].start = convertFirestoreTimestampToDate(events[i].start);
     events[i].end = convertFirestoreTimestampToDate(events[i].end);
   }
+
 }
 
 // Function to convert timestamp to a JavaScript Date object
@@ -80,9 +80,6 @@ const convertFirestoreTimestampToDate = (firestoreTimestamp) => {
   const { seconds, nanoseconds } = firestoreTimestamp;
   return new Date(seconds * 1000 + nanoseconds / 1000000); // Combine seconds and nanoseconds
 };
-
-
-
 
 
 const Sapcalendar = () => {
@@ -109,7 +106,7 @@ const Sapcalendar = () => {
 
             {events.slice(0, 3).map(event => <button class="upcomingeventsbutton"> 
 
-            <Link to={`/event/$(event.title)}`}>{event.title}</Link>            
+            <Link to={`/event/${event.eventID}`}>{event.title}</Link>          
 
             </button>)}
 
@@ -122,7 +119,6 @@ const Sapcalendar = () => {
 
           <Calendar localizer={localizer} events={allEvents} startAccessor="start" endAccessor="end" style={{ height: 500, margin: "50px" }} />
           
-          <Buttons />
         </div>
 
       </div>
