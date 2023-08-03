@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { getAuth  } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
-import { doc, deleteDoc } from "firebase/firestore";
+import { doc, deleteDoc, updateDoc  } from "firebase/firestore";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import Navbar from "../components/navbar.js";
 import React, { useEffect, useState } from "react";
@@ -84,6 +84,9 @@ export const EventDetails = () => {
     var eventname = "";
     var eventstart = "";
     var eventend = "";
+    var eventcomment = "";
+    var eventlocation = "";
+    var eventtype = "";
 
     if (event !== null){
         eventname = event[0].title;
@@ -92,12 +95,46 @@ export const EventDetails = () => {
 
         const eventenddate = convertFirestoreTimestampToDate(event[0].end);
         eventend = eventenddate.toDateString();
+
+        eventlocation = event[0].location;
+        eventcomment = event[0].comment;
+        eventtype = event[0].eventtype;
+
     }
 
     const RemoveData = async() => {
         await deleteDoc(doc(db, "Events", eventID));
         console.log(eventID)
-        alert("event deleted");
+        alert("Event Deleted");
+        navigate("/")
+    }
+
+    const [eventnamestate, setEventnamestate] = useState(eventname); 
+    console.log("eventstate:" , eventnamestate);
+
+    const handleInputChange = (event) => {
+        setEventnamestate(event.target.value); // Update the username state with the new input value
+    };
+
+
+    const Updatedata = async() => {
+
+        const title = document.getElementById('titleupdate').value;
+        const location = document.getElementById('locationupdate').value;
+        const comment = document.getElementById('commentupdate').value;
+
+
+        const eventref = doc(db, "Events", eventID);
+
+        // Set the "capital" field of the city 'DC'
+        await updateDoc(eventref, {
+            title: title,
+            eventID: eventID,
+            location: location,
+            comment: comment
+        });
+        console.log(eventID)
+        alert("Event Updated");
         navigate("/")
     }
 
@@ -105,14 +142,23 @@ export const EventDetails = () => {
         <div>
             <Navbar />
             <div class = "eventdetailsdiv">
-                <h1>Event Details</h1>
+                
 
                 {event ? (
                 <div>
-                    <p> Title : {eventname} </p>
+                    <h1>Event:  { eventname }</h1>
+
                     <p> Start date : { eventstart } </p>
-                    <p> End date : {eventend} </p>
-                    <button onClick = {RemoveData} class = "deleteeventbtn">Delete Event</button>
+                    <p> End date : { eventend } </p>
+                    <p>Event type : {eventtype}</p>
+
+                    <p>Event Location : {eventlocation}</p>
+                    <p>Event Comment : {eventcomment}</p>
+
+                    <div class = "eventdetailsfooter">
+                        <button onClick = {RemoveData} class = "deleteeventbtn">Delete Event</button>
+                        <button onClick = {Updatedata} class = "saveeventbtn">Save Event</button>
+                    </div>
                 </div>) : (<div>Loading.. </div>)}
                     
             </div>

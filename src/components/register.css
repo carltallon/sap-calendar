@@ -1,10 +1,9 @@
 .registerdiv {
-    border: 2px solid rgb(150, 150, 150);
+    
     max-width: 100vh;
     margin: 10vh auto;
     text-align: center;
-    background-color: rgba(164, 164, 164, 0.406);
-    box-shadow: 5px 5px rgba(164, 164, 164, 0.253);
+    
 }
 
 .registerform {
@@ -16,19 +15,28 @@
     margin: 2vh auto;
 }
 
+.registerdiv h2 {
+    font-size: 2rem;
+}
+
 .usernameinput, .emailinput, .passwordinput {
     padding: 10px;
     width: 10vw;
     font-size: 1.2rem;
     margin: 1vh auto;
+    width: 20vw;
+    height: 50px;
+    font-size: 25px;
+    border-radius: 8px;
+    padding: 10px;
 }
 
 #signUp {
     padding: 14px 40px;
-    font-size: 1.0rem;
+    font-size: 1.2rem;
     margin: 2vh auto;
     background-color: #1294F2;
-    border-radius: 10px;
+    border-radius: 8px;
     font-family: Quicksand;
     font-style: normal;
     font-weight: 400;

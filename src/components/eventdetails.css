@@ -6,14 +6,31 @@
     border: 2px solid rgb(150, 150, 150);
     background-color: rgba(164, 164, 164, 0.406);
     box-shadow: 5px 5px rgba(164, 164, 164, 0.253);
-    text-align: center;
+    
     font-style: normal;
     font-weight: 600;
     line-height: normal;
     font-family: Rubik;
 }
 
-.deleteeventbtn {
+
+.eventdetailsdiv h1 {
+    font-size: 2rem;
+    border-bottom: 2px solid rgb(0, 0, 0);
+}
+
+.eventdetailsdiv p {
+    font-size: 1.4rem;
+}
+
+.deleteeventbtn, .saveeventbtn {
     padding: 10px 20px;
-    margin: 1vh auto;
+}
+
+.eventdetailsfooter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1vh;
 }

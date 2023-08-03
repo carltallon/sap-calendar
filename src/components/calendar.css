@@ -107,19 +107,45 @@ body {
   }
 }
   
+.personalH4 {
+  font-family: Quicksand;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.2rem;
+  color: #687688;
+  margin: 0;
+}
 
+.h4holder{
+  text-align: left;
+  width: 60vw;
+  margin: 0 auto;
+}
+
+.h4holder h4 {
+  margin: 0;
+}
+
+.workH4 {
+  font-family: Quicksand;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.2rem;
+  color: #519D9F;
+}
 
 /* EDITING OOB CALENDAR CSS 
 days not in month
 */
 .rbc-off-range-bg {
-  background: #41a3ff32 !important;
+  background: #00000085 !important;
 }
 
 .rbc-calendar {
   color: #000000;
   padding: 10px !important;
 }
+
 
 .rbc-day-bg {
   border-left: 1px solid #000000 !important;
@@ -139,17 +165,17 @@ days not in month
 
 
 .rbc-today {
-  background: #41a3ffe0 !important;
+  background: #41a3ff4b !important;
   color: #41a3ff !important;
 }
 
 .rbc-toolbar-label {
-  font-size: 20px;
+  font-size: 1.8rem;
 }
 
 .rbc-btn-group button {
   background-color: #41a3ff !important;
-  font-size: 20px !important;
+  font-size: 1rem !important;
   border-radius: 2px !important;
   margin-right: 1vh !important;
   font-family: Quicksand !important;

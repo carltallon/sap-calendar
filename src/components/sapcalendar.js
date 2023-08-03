@@ -94,7 +94,7 @@ const convertFirestoreTimestampToDate = (firestoreTimestamp) => {
 const Sapcalendar = () => {
 
   const navigate = useNavigate();
-  
+
   const handleEventClick = (event) => {
     // This function will be called when an event is clicked
     console.log('Clicked event:', event.title);
@@ -136,8 +136,21 @@ const Sapcalendar = () => {
 
         <div id="calendardiv">
 
-          <Calendar localizer={localizer} onSelectEvent={handleEventClick} events={allEvents} startAccessor="start" endAccessor="end" style={{ height: 500, margin: "50px" }} />
-          
+          <Calendar 
+            localizer={localizer} 
+            onSelectEvent={handleEventClick} 
+            events={allEvents} 
+            startAccessor="start" 
+            eventPropGetter={(event) => {
+              const backgroundColor = event.eventtype ? "#687688" : "#519D9F";
+              return { style: { backgroundColor } }
+            }}
+            endAccessor="end" style={{ height: 500, margin: "1vh" }} 
+          />
+
+          <div class = "h4holder">
+          <h4 class = "personalH4">personal</h4> <h4 class = "workH4">work</h4>
+          </div>
         </div>
 
       </div>

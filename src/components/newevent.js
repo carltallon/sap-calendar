@@ -57,7 +57,10 @@ export default function Newevent() {
         const end = new Date(enddateTimeString);
 
         const title = document.getElementById('EventTitle').value;
-
+        const location = document.getElementById('location').value;
+        const comment = document.getElementById('comment').value;
+        const eventtype = document.getElementById('eventtype').value;
+        
         const { uid } = auth.currentUser;
 
         const eventID = getRandomInt(1, 43782);
@@ -67,7 +70,10 @@ export default function Newevent() {
             start: start,
             end: end,
             eventID: eventID,
-            UserID: uid
+            UserID: uid,
+            location: location,
+            comment: comment,
+            eventtype: eventtype
         });
 
         alert("Event Created" , title);
@@ -102,8 +108,14 @@ export default function Newevent() {
                                 </div>
                             </div>
                             <div class="form-group d-flex">
-                                <div class="input-group">
-                                    
+                                <select required id = "eventtype" class="form-control border">
+                                    <option value="work" selected>Work Event</option>
+                                    <option value="personal">Personal Event</option>
+                                </select>
+
+                            </div>
+                            <div class="form-group d-flex">
+                                <div class="input-group">   
                                     <div class="row my-2rem">
                                         <div class="col-sm-4">
                                             <input required type="date" id="startdate" class="form-control border" />
@@ -151,7 +163,7 @@ export default function Newevent() {
                                     </svg>
                                 </label>
                                 <div class="input-group position-relative addLocation">
-                                    <input type="text" placeholder="Add a location" class="form-control border-bottom" />
+                                    <input id = "location" type="text" placeholder="Add a location" class="form-control border-bottom" />
                                 </div>
                             </div>
                             <div class="form-group d-flex">
@@ -179,7 +191,7 @@ export default function Newevent() {
                                     </svg>
                                 </label>
                                 <div class="input-group">
-                                    <textarea placeholder="Comment"class="form-control border"></textarea>
+                                    <textarea id = "comment" placeholder="Comment"class="form-control border"></textarea>
                                 </div>
                             </div>
                         </div>
