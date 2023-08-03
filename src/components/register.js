@@ -6,6 +6,7 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from 'react';
 import { getFirestore } from "firebase/firestore";
 
+import { useNavigate  } from 'react-router-dom';
 import { collection, addDoc } from "firebase/firestore"; 
 const firebaseConfig = {
     // Your Firebase configuration here
@@ -23,10 +24,13 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 const auth = getAuth();
+
 // Initialize Firebase
 const db = getFirestore(app);
 //FUNCTION BEGINS
 const Register = () => {
+
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     email: '',
@@ -63,6 +67,7 @@ const Register = () => {
               UserID: user.uid
             });
             alert('User created!');
+            navigate("/");
         })
         .catch((error) => {
             const errorMessage = error.message;

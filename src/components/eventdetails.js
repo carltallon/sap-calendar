@@ -9,6 +9,8 @@ import { collection, query, where, getDocs } from "firebase/firestore";
 import Navbar from "../components/navbar.js";
 import React, { useEffect, useState } from "react";
 
+import { useNavigate  } from 'react-router-dom';
+
 const firebaseConfig = {
     // Your Firebase configuration here
     apiKey: "AIzaSyCf8LYQfeurGdAvB5Uu_eeQIVoWyl6Z3IY",
@@ -43,9 +45,11 @@ const convertFirestoreTimestampToDate = (firestoreTimestamp) => {
 export const EventDetails = () => {
     
     const { eventID } = useParams();
-    console.log(eventID);
     const eventIDInt = parseInt(eventID, 10);
     const eventfromquery = [];
+
+    
+    const navigate = useNavigate();
 
     const [event, setEvent] = useState(null);
 
@@ -82,7 +86,6 @@ export const EventDetails = () => {
     var eventend = "";
 
     if (event !== null){
-        console.log(event[0].title);
         eventname = event[0].title;
         const eventstartdate = convertFirestoreTimestampToDate(event[0].start);
         eventstart = eventstartdate.toDateString();
@@ -91,9 +94,11 @@ export const EventDetails = () => {
         eventend = eventenddate.toDateString();
     }
 
-    function RemoveData() {
-    
-        //deleteDoc(doc(db, "Events", eventtitle));
+    const RemoveData = async() => {
+        await deleteDoc(doc(db, "Events", eventID));
+        console.log(eventID)
+        alert("event deleted");
+        navigate("/")
     }
 
     return (

@@ -17,6 +17,8 @@ import Location from "../components/location.js";
 import React, { useState } from "react";
 import { collection, query, where, getDocs } from "firebase/firestore";
 
+import { useNavigate  } from 'react-router-dom';
+
 const locales = {
   "en-US": require("date-fns/locale/en-US"),
 };
@@ -87,13 +89,20 @@ const convertFirestoreTimestampToDate = (firestoreTimestamp) => {
   return new Date(seconds * 1000 + nanoseconds / 1000000); // Combine seconds and nanoseconds
 };
 
-const onSelectEvent = () => {
-  
-}
+
 
 const Sapcalendar = () => {
 
+  const navigate = useNavigate();
   
+  const handleEventClick = (event) => {
+    // This function will be called when an event is clicked
+    console.log('Clicked event:', event.title);
+    // Add your custom logic here, e.g., display event details in a modal
+    navigate(`/event/${event.eventID}`);    
+  };
+
+
   const [allEvents, setAllEvents] = useState(events);
 
   return (
@@ -127,7 +136,7 @@ const Sapcalendar = () => {
 
         <div id="calendardiv">
 
-          <Calendar localizer={localizer} onSelectEvent={onSelectEvent} events={allEvents} startAccessor="start" endAccessor="end" style={{ height: 500, margin: "50px" }} />
+          <Calendar localizer={localizer} onSelectEvent={handleEventClick} events={allEvents} startAccessor="start" endAccessor="end" style={{ height: 500, margin: "50px" }} />
           
         </div>
 
