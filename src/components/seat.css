@@ -1,7 +1,7 @@
 .seatdiv {
     margin: 10vh;
     text-align: center;
-    width: 25vw;
+    width: 20vw;
     padding: 1vh;
     border: 2px solid rgb(150, 150, 150);
     background-color: rgba(164, 164, 164, 0.406);
@@ -14,8 +14,7 @@
     margin: 10vh auto;
     text-align: center;
     display: grid;
-    grid-template-columns: auto;
-    border: 2px solid green;
+    grid-template-columns: auto auto;
     width: 80vw;
 }
 
@@ -41,12 +40,11 @@
 
 
 .seatingimgdiv {
-    padding: 10px 20px;
-    margin: 2vh;
-    border: 2px sold yellow;
+    padding: 4vh;
+    margin: 2vh auto;
     border-radius: 5px;
-    width: 80vw;
-    height: 100vh;
+    width: 40vw;
+    height: 40vh;
     font-family: Quicksand !important;
     font-style: normal !important;
     font-weight: 500 !important;

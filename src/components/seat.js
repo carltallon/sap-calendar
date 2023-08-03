@@ -82,7 +82,42 @@ const getUsersAtHomeUsernames = async (usersathome) => {
   }
 };
 
-getUsersAtHomeUsernames(usersathome);
+const getUsersinOfficeUsernames = async (usersinoffice) => {
+  try {
+    const usersinOfficeUsernames = [];
+
+    // Loop through the usersathome array and fetch usernames for each UserID
+    for (let i = 0; i < usersinoffice.length; i++) {
+      const userId = usersinoffice[i];
+      const usernamesRef = collection(db, "Usernames");
+      const usernamesQuery = query(usernamesRef, where("UserID", "==", userId));
+      const querySnapshot = await getDocs(usernamesQuery);
+
+      if (!querySnapshot.empty) {
+        // If the user with the given UserID is found, add the username to the array
+        querySnapshot.forEach((doc) => {
+          const username = doc.data().username;
+          usersinOfficeUsernames.push(username);
+        });
+      } else {
+        // If the user with the given UserID is not found, you can add a placeholder value
+        console.log('User not found');
+      }
+    }
+
+    // Now you have an array (usersAtHomeUsernames) with usernames corresponding to the usersathome array
+    console.log('Usernames for users at home:', usersinOfficeUsernames);
+    return usersinOfficeUsernames;
+  } catch (error) {
+    console.error('Error fetching usernames:', error);
+    return [];
+  }
+};
+
+var usersinofficeusername = [];
+usersinofficeusername = getUsersinOfficeUsernames(usersinoffice);
+var usersathomeusername = [];
+usersathomeusername = getUsersAtHomeUsernames(usersathome);
 
 export default function Seat() {
 
