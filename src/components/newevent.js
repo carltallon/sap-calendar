@@ -11,7 +11,9 @@ import { collection, addDoc } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
-
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
 export default function Newevent() {
 
@@ -58,12 +60,17 @@ export default function Newevent() {
 
         const { uid } = auth.currentUser;
 
+        const eventID = getRandomInt(1, 43782);
+
         const eventsref = addDoc(collection(db, "Events"), {
             title: title,
             start: start,
             end: end,
+            eventID: eventID,
             UserID: uid
         });
+
+        alert("Event Created" , title);
 
         navigate("/");
 

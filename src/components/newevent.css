@@ -71,7 +71,7 @@ CSS FILE >_<
 .dashboard__wrapper input[type=number],
 .dashboard__wrapper input[type=search] {
   padding: 1rem 1.5rem;
-  font-size: 1.6rem;
+  font-size: 1.2rem;
   font-family: "Inter", sans-serif;
   background-color: transparent;
 }
@@ -116,7 +116,7 @@ CSS FILE >_<
   -moz-appearance: none;
   font-family: "Inter", sans-serif;
   padding: 1rem 1.5rem;
-  font-size: 1.6rem;
+  font-size: 1.2rem;
 }
 
 .dashboard__wrapper input:-webkit-autofill,
@@ -140,7 +140,7 @@ CSS FILE >_<
   min-height: 100px;
   font-family: "Inter", sans-serif;
   padding: 1rem 1.5rem;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
 }
 .dashboard__wrapper textarea.form-control:focus {
   outline: none;
@@ -256,7 +256,7 @@ CSS FILE >_<
 .dashboard__wrapper {
   padding: 1rem;
   margin: 2vh auto;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-family: "Inter", sans-serif;
   background-color: #ffffff;
   color: #000000;
@@ -276,7 +276,7 @@ CSS FILE >_<
 }
 .dashboard__wrapper .dashboard__body .start__block {
   border: 0.1rem solid #000000;
-  padding: 2rem;
+  padding: 1rem;
   margin: 2vh auto;
   border: 2px solid rgb(150, 150, 150);
   background-color: rgba(164, 164, 164, 0.406);
@@ -296,7 +296,7 @@ CSS FILE >_<
 @media screen and (min-width: 1200px) {
   .dashboard__wrapper .dashboard__body .start__block {
     width: calc(75% - 1.5rem);
-    padding: 3rem;
+    padding: 2rem;
   }
 }
 .dashboard__wrapper .dashboard__body .start__block::-webkit-scrollbar {
@@ -373,6 +373,7 @@ CSS FILE >_<
   background-position: 97% center;
   background-size: 2rem;
 }
+
 .dashboard__wrapper .dashboard__body .start__block .form_body .form-group input[type=date]::-webkit-calendar-picker-indicator {
   background: transparent;
   bottom: 0;
@@ -451,7 +452,7 @@ CSS FILE >_<
 
 .btn-cancel {
   background-color: #FE3D00;
-  font-size: 1.2rem;
+  font-size: 1rem;
   padding: 1rem 3rem;
   border-radius: 1rem;
   font-weight: 600;
@@ -501,11 +502,11 @@ CSS FILE >_<
   text-align: center;
 }
 .dashboard__wrapper .dashboard__body .end__block .evnt_header .date_nav p {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
 }
 .dashboard__wrapper .dashboard__body .end__block .evnt_header .date_nav strong {
   font-weight: 900;
-  font-size: 3.4rem;
+  font-size: 1.6rem;
   line-height: 1;
   text-shadow: 0px 0px 4px #fff;
 }
@@ -539,7 +540,7 @@ CSS FILE >_<
   border-radius: 1rem;
   text-align: center;
   padding: 1rem 1.5rem;
-  font-size: 1.3rem;
+  font-size: 1rem;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);

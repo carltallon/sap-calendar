@@ -43,6 +43,7 @@ const firebaseConfig = {
 };
 
 const events = [];
+const username = "";
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
@@ -70,6 +71,11 @@ const fillevents = async (uid) => {
     events[i].end = convertFirestoreTimestampToDate(events[i].end);
   }
 
+  const usernamequery = query(collection(db, "Usernames"), where("UserID", "==", uid));
+  const usernamesnapshot = await getDocs(usernamequery);
+  usernamesnapshot.forEach((doc) => {
+    console.log(doc.data());
+  });
 }
 
 // Function to convert timestamp to a JavaScript Date object
@@ -81,12 +87,15 @@ const convertFirestoreTimestampToDate = (firestoreTimestamp) => {
   return new Date(seconds * 1000 + nanoseconds / 1000000); // Combine seconds and nanoseconds
 };
 
+const onSelectEvent = () => {
+  
+}
 
 const Sapcalendar = () => {
 
   
   const [allEvents, setAllEvents] = useState(events);
- 
+
   return (
 
     <div>
@@ -104,6 +113,7 @@ const Sapcalendar = () => {
 
             <h2>Your upcoming events</h2>
 
+          
             {events.slice(0, 3).map(event => <button class="upcomingeventsbutton"> 
 
             <Link to={`/event/${event.eventID}`}>{event.title}</Link>          
@@ -117,7 +127,7 @@ const Sapcalendar = () => {
 
         <div id="calendardiv">
 
-          <Calendar localizer={localizer} events={allEvents} startAccessor="start" endAccessor="end" style={{ height: 500, margin: "50px" }} />
+          <Calendar localizer={localizer} onSelectEvent={onSelectEvent} events={allEvents} startAccessor="start" endAccessor="end" style={{ height: 500, margin: "50px" }} />
           
         </div>
 

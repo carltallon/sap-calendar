@@ -1,4 +1,4 @@
-import React from 'react';
+
 import "./eventdetails.css";
 import { useParams } from 'react-router-dom';
 import { getAuth  } from "firebase/auth";
@@ -7,6 +7,7 @@ import { initializeApp } from "firebase/app";
 import { doc, deleteDoc } from "firebase/firestore";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import Navbar from "../components/navbar.js";
+import React, { useEffect, useState } from "react";
 
 const firebaseConfig = {
     // Your Firebase configuration here
@@ -27,25 +28,6 @@ const db = getFirestore(app);
 const auth = getAuth();
 const user = auth.currentUser;
 
-const getevent = async (eventID) => {
-    
-    const eventsquery = query(collection(db, "Events"), where("eventID", "==", eventID));
-    const eventSnapshot = await getDocs(eventsquery);
-    eventSnapshot.forEach((doc) => {
-        const eventData = doc.data();
-        const event = {
-            id: eventSnapshot.id,
-            ...eventData,
-          };
-        console.log(event);
-    });
-
-
-    //event.start = convertFirestoreTimestampToDate(event.start);
-    //event.end = convertFirestoreTimestampToDate(event.end);
-    
-    //return event;
-}
 
 // Function to convert timestamp to a JavaScript Date objects
 const convertFirestoreTimestampToDate = (firestoreTimestamp) => {
@@ -56,12 +38,59 @@ const convertFirestoreTimestampToDate = (firestoreTimestamp) => {
     return new Date(seconds * 1000 + nanoseconds / 1000000); // Combine seconds and nanoseconds
 };
 
+
+
 export const EventDetails = () => {
     
     const { eventID } = useParams();
-    getevent(eventID);
+    console.log(eventID);
+    const eventIDInt = parseInt(eventID, 10);
+    const eventfromquery = [];
 
-    
+    const [event, setEvent] = useState(null);
+
+    const getEventByEventID = (eventIDInt) => {
+        const eventsquery = query(collection(db, "Events"), where("eventID", "==", eventIDInt));
+      
+        return getDocs(eventsquery)
+          .then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+              const eventData = doc.data();
+              eventfromquery.push(eventData);
+            });
+            return eventfromquery;
+          })
+          .catch((error) => {
+            console.error('Error fetching events:', error);
+            return [];
+          });
+    };
+
+
+    useEffect(() => {
+        getEventByEventID(eventIDInt)
+          .then((eventsArray) => {
+            setEvent(eventsArray);
+          })
+          .catch((error) => {
+            console.error('Error fetching events:', error);
+          });
+    }, []);
+
+    var eventname = "";
+    var eventstart = "";
+    var eventend = "";
+
+    if (event !== null){
+        console.log(event[0].title);
+        eventname = event[0].title;
+        const eventstartdate = convertFirestoreTimestampToDate(event[0].start);
+        eventstart = eventstartdate.toDateString();
+
+        const eventenddate = convertFirestoreTimestampToDate(event[0].end);
+        eventend = eventenddate.toDateString();
+    }
+
     function RemoveData() {
     
         //deleteDoc(doc(db, "Events", eventtitle));
@@ -72,22 +101,17 @@ export const EventDetails = () => {
             <Navbar />
             <div class = "eventdetailsdiv">
                 <h1>Event Details</h1>
-                
+
+                {event ? (
+                <div>
+                    <p> Title : {eventname} </p>
+                    <p> Start date : { eventstart } </p>
+                    <p> End date : {eventend} </p>
+                    <button onClick = {RemoveData} class = "deleteeventbtn">Delete Event</button>
+                </div>) : (<div>Loading.. </div>)}
                     
             </div>
         </div>
     );
 };
 
-
-
-//event ? (
-                //    <div>
-                //        <p> Title : {event.title}</p>
-                //        <p> Start date : {event.start}</p>
-                //        <p> End date : {event.end}</p>
-                //        <button onClick = {RemoveData} class = "deleteeventbtn">Delete Event</button>
-                //    </div>
-                //    ) : (
-                //    <p>Event not found</p>
-                //)}

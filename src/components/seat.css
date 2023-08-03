@@ -45,7 +45,8 @@
     margin: 2vh;
     border: 2px sold yellow;
     border-radius: 5px;
-    width: 100vh;
+    width: 80vw;
+    height: 100vh;
     font-family: Quicksand !important;
     font-style: normal !important;
     font-weight: 500 !important;

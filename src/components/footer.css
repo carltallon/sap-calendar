@@ -1,6 +1,6 @@
 footer {
     text-align: center;
-    margin: 50vh 0vh auto;
+    margin: 100vh 0vh auto;
     padding: 5vh;
     border-top: 1px solid #4c4c4cbe;
     color: rgb(0, 0, 0);
@@ -13,7 +13,7 @@ footer {
 @media screen and (max-width: 1200px) {
   
   footer {
-    margin-top: 100vh;
+    margin-top: 200vh;
   }
 
   
@@ -22,7 +22,7 @@ footer {
 @media screen and (max-width: 1000px) {
 
   footer {
-    margin-top: 200vh;
+    margin-top: 300vh;
   }
 
 }
