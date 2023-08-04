@@ -1,5 +1,5 @@
 import './newevent.css';
-
+import db from '../components/firebaseconfig'; 
 import Navbar from "../components/navbar.js";
 import Loginenforcer from "../components/loginenforcer.js"
 
@@ -8,30 +8,12 @@ import { getAuth } from "firebase/auth";
 
 import { useNavigate  } from 'react-router-dom';
 import { collection, addDoc } from "firebase/firestore"; 
-import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
 
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 export default function Newevent() {
-
-    const firebaseConfig = {
-        // Your Firebase configuration here
-        apiKey: "AIzaSyCf8LYQfeurGdAvB5Uu_eeQIVoWyl6Z3IY",
-        authDomain: "test-30bf7.firebaseapp.com",
-        databaseURL: "https://test-30bf7-default-rtdb.europe-west1.firebasedatabase.app",
-        projectId: "test-30bf7",
-        storageBucket: "test-30bf7.appspot.com",
-        messagingSenderId: "381008086519",
-        appId: "1:381008086519:web:f5fce4c537e56933ca1af2",
-        measurementId: "G-PMRE4PWB4B"
-    };
-      
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
 
     const navigate = useNavigate();
     

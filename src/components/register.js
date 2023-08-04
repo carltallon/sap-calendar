@@ -1,32 +1,15 @@
 import './register.css';
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getDatabase, set, ref } from "firebase/database";
+import {  set, ref } from "firebase/database";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from 'react';
-import { getFirestore } from "firebase/firestore";
-
+import database from '../components/loginregisterconfig'; 
 import { useNavigate  } from 'react-router-dom';
 import { collection, addDoc } from "firebase/firestore"; 
-const firebaseConfig = {
-    // Your Firebase configuration here
-    apiKey: "AIzaSyCf8LYQfeurGdAvB5Uu_eeQIVoWyl6Z3IY",
-    authDomain: "test-30bf7.firebaseapp.com",
-    databaseURL: "https://test-30bf7-default-rtdb.europe-west1.firebasedatabase.app",
-    projectId: "test-30bf7",
-    storageBucket: "test-30bf7.appspot.com",
-    messagingSenderId: "381008086519",
-    appId: "1:381008086519:web:f5fce4c537e56933ca1af2",
-    measurementId: "G-PMRE4PWB4B"
-};
+import db from '../components/firebaseconfig'; 
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const database = getDatabase(app);
 const auth = getAuth();
 
-// Initialize Firebase
-const db = getFirestore(app);
 //FUNCTION BEGINS
 const Register = () => {
 

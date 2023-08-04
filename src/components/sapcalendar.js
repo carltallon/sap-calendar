@@ -3,20 +3,16 @@ import getDay from "date-fns/getDay";
 import parse from "date-fns/parse";
 import startOfWeek from "date-fns/startOfWeek";
 import './calendar.css';
-
-import { getFirestore } from "firebase/firestore";
-import { initializeApp } from "firebase/app";
+import db from '../components/firebaseconfig'; 
 
 import { Calendar, dateFnsLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import { getAuth, onAuthStateChanged  } from "firebase/auth";
-
 import { Link } from 'react-router-dom';
 import Navbar from "../components/navbar.js";
 import Location from "../components/location.js";
 import React, { useState } from "react";
 import { collection, query, where, getDocs } from "firebase/firestore";
-
 import { useNavigate  } from 'react-router-dom';
 
 const locales = {
@@ -32,24 +28,10 @@ const localizer = dateFnsLocalizer({
 });
 
 
-const firebaseConfig = {
-  // Your Firebase configuration here
-  apiKey: "AIzaSyCf8LYQfeurGdAvB5Uu_eeQIVoWyl6Z3IY",
-  authDomain: "test-30bf7.firebaseapp.com",
-  databaseURL: "https://test-30bf7-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "test-30bf7",
-  storageBucket: "test-30bf7.appspot.com",
-  messagingSenderId: "381008086519",
-  appId: "1:381008086519:web:f5fce4c537e56933ca1af2",
-  measurementId: "G-PMRE4PWB4B"
-};
 
 const events = [];
 const username = "";
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
 const auth = getAuth();
 const user = auth.currentUser;
 

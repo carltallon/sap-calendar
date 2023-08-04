@@ -21,11 +21,11 @@
 .users { 
     padding: 20px;
     font-size: 1rem;
-    border: none;
     color: black;
-    background-color: #1294F2;
-    border-radius: 8px;
     height: 5vh;
+    border: 0;
+    background-color: transparent;
+    border-bottom: 1px solid black;
     margin-top: 1vh;
     font-family: Quicksand;
     font-style: normal;
@@ -38,6 +38,11 @@
     cursor: pointer;
 }
 
+@media screen and (max-width: 1400px) {
+    .users {
+        height: 5vh;
+    }
+}
 
 .seatingimgdiv {
     padding: 4vh;

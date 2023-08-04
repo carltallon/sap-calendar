@@ -20,6 +20,7 @@ body {
     border: 2px solid rgb(150, 150, 150);
     background-color: rgba(164, 164, 164, 0.406);
     box-shadow: 5px 5px rgba(164, 164, 164, 0.253);
+    
 }
 
 .sidedivmain{
@@ -49,7 +50,7 @@ body {
   border-top: 2px solid #292929be;
   padding: 10px;
   width: 20vw;
-  margin: 0vh auto;
+  margin: 10vh auto;
 }
 
 @media screen and (max-width: 1000px) {
@@ -138,7 +139,7 @@ body {
 days not in month
 */
 .rbc-off-range-bg {
-  background: #00000085 !important;
+  background: #00000067 !important;
 }
 
 .rbc-calendar {
@@ -148,11 +149,12 @@ days not in month
 
 
 .rbc-day-bg {
-  border-left: 1px solid #000000 !important;
+  border-left: .5px solid #000000 !important;
+  border-right: .5px solid #000000 !important;
 }
 
 .rbc-month-view {
-  border: 1px solid black !important;
+  border-bottom: 1px solid black !important;
 }
 .rbc-month-row {
   border-top: 1px solid black !important;
@@ -163,6 +165,12 @@ days not in month
   color: #000000 !important;
 }
 
+.rbc-header {
+  color: #000000 !important;
+  font-size: 1rem !important;
+  font-weight: 100 !important;
+  padding: 10px !important;
+}
 
 .rbc-today {
   background: #41a3ff4b !important;
@@ -174,7 +182,7 @@ days not in month
 }
 
 .rbc-btn-group button {
-  background-color: #41a3ff !important;
+  background-color: #41a3ffda !important;
   font-size: 1rem !important;
   border-radius: 2px !important;
   margin-right: 1vh !important;

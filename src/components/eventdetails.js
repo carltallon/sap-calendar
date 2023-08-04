@@ -11,21 +11,7 @@ import React, { useEffect, useState } from "react";
 
 import { useNavigate  } from 'react-router-dom';
 
-const firebaseConfig = {
-    // Your Firebase configuration here
-    apiKey: "AIzaSyCf8LYQfeurGdAvB5Uu_eeQIVoWyl6Z3IY",
-    authDomain: "test-30bf7.firebaseapp.com",
-    databaseURL: "https://test-30bf7-default-rtdb.europe-west1.firebasedatabase.app",
-    projectId: "test-30bf7",
-    storageBucket: "test-30bf7.appspot.com",
-    messagingSenderId: "381008086519",
-    appId: "1:381008086519:web:f5fce4c537e56933ca1af2",
-    measurementId: "G-PMRE4PWB4B"
-};
-  
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+import db from '../components/firebaseconfig'; 
 
 const auth = getAuth();
 const user = auth.currentUser;
@@ -142,18 +128,16 @@ export const EventDetails = () => {
         <div>
             <Navbar />
             <div class = "eventdetailsdiv">
-                
-
+              <h1>Event Details</h1>
                 {event ? (
                 <div>
-                    <h1>Event:  { eventname }</h1>
-
-                    <p> Start date : { eventstart } </p>
-                    <p> End date : { eventend } </p>
-                    <p>Event type : {eventtype}</p>
-
-                    <p>Event Location : {eventlocation}</p>
-                    <p>Event Comment : {eventcomment}</p>
+                    
+                    <div class = "eventdetailsinfo">Event Name:  <p>{ eventname }</p> </div>
+                    <div class = "eventdetailsinfo">Start date: <p>{ eventstart }</p></div>
+                    <div class = "eventdetailsinfo">End date: <p>{ eventend }</p> </div>
+                    <div class = "eventdetailsinfo">Event type: <p>{eventtype}</p></div>
+                    <div class = "eventdetailsinfo">Event Location: <p>{eventlocation}</p></div>
+                    <div class = "eventdetailsinfo">Event Comment: <p>{eventcomment}</p></div>
 
                     <div class = "eventdetailsfooter">
                         <button onClick = {RemoveData} class = "deleteeventbtn">Delete Event</button>
