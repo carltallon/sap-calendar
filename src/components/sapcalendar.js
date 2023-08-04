@@ -27,19 +27,18 @@ const localizer = dateFnsLocalizer({
   locales,
 });
 
-
-
 const events = [];
-const username = "";
-
+const usernames = [];
 const auth = getAuth();
 const user = auth.currentUser;
-
+var username = "";
 onAuthStateChanged(auth, (user) => {
   if (user) {
     // User is signed in
     const uid = user.uid;
     fillevents(uid);
+    getusername(uid);
+    
   } 
 });
 
@@ -55,11 +54,15 @@ const fillevents = async (uid) => {
     events[i].end = convertFirestoreTimestampToDate(events[i].end);
   }
 
-  const usernamequery = query(collection(db, "Usernames"), where("UserID", "==", uid));
+}
+
+const getusername = async (uid) => {
+  const usernamequery = query(collection(db, "Usernames"), where("UserId", "==", uid));
   const usernamesnapshot = await getDocs(usernamequery);
   usernamesnapshot.forEach((doc) => {
-    console.log(doc.data());
+    usernames.push(doc.data());
   });
+  username = usernames[0].Username;
 }
 
 // Function to convert timestamp to a JavaScript Date object
@@ -78,8 +81,6 @@ const Sapcalendar = () => {
   const navigate = useNavigate();
 
   const handleEventClick = (event) => {
-    // This function will be called when an event is clicked
-    console.log('Clicked event:', event.title);
     // Add your custom logic here, e.g., display event details in a modal
     navigate(`/event/${event.eventID}`);    
   };
@@ -92,9 +93,11 @@ const Sapcalendar = () => {
     <div>
 
       <Navbar />
+      
+      <h3 class = "usergreeting"> Hello, {username}!</h3>
 
       <div class="calendarholdermain">
-
+        
         <div class = "sidedivmain">
           
           <Location />

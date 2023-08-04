@@ -98,7 +98,10 @@ body {
   background-color: #ffffff;
 }
 
-
+.usergreeting {
+  text-align: center;
+  font-size: 1.4rem;
+}
 
 @media screen and (max-width: 1200px) {
 
