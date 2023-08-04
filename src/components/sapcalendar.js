@@ -93,7 +93,7 @@ const Sapcalendar = () => {
     <div>
 
       <Navbar />
-      
+
       <h3 class = "usergreeting"> Hello, {username}!</h3>
 
       <div class="calendarholdermain">
@@ -134,7 +134,7 @@ const Sapcalendar = () => {
           />
 
           <div class = "h4holder">
-          <h4 class = "personalH4">personal</h4> <h4 class = "workH4">work</h4>
+          <h4 class = "personalH4">personal event</h4> <h4 class = "workH4">work event</h4>
           </div>
         </div>
 

@@ -47,7 +47,7 @@ export default function account() {
             <div class ="mainaccountdiv">
                 
 
-              <h3>View your Account Details</h3>
+              <h3>Account Details</h3>
 
               <div class ="accountinfoholder">
 
