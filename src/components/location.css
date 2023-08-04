@@ -6,12 +6,11 @@
 }
 
 .locationdiv h2 {
-    font-style: normal;
-    font-weight: 700;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     line-height: normal;
     margin: 5vh;
-    font-family: Rubik;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 600;
 }
 
 
@@ -20,7 +19,7 @@
     font-weight: 400;
     font-size: 1.2rem;
     line-height: normal;
-    font-family: Rubik;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .locationbtnatoffice {
