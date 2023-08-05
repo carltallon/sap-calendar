@@ -20,20 +20,17 @@
 }
 
 .users { 
-    padding: 20px;
-    font-size: 1rem;
+    padding: 2px;
+    font-size: 1.8rem;
     color: black;
     height: 5vh;
-    border: 0;
     width: 15vw;
     background-color: transparent;
-    border-bottom: 2px solid black;
     margin-top: 1vh;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-style: normal;
     font-weight: 200;
     line-height: normal;
-
 }
 
 .users:hover {

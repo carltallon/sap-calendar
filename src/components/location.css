@@ -76,24 +76,15 @@
 }
 
 
-@media screen and (max-width: 1200px) {
-  
 
-    .locationdiv {
-        height: 35vh;
+@media screen and (max-width: 1150px) {
+    .locationbtnathome, .locationbtnatoffice {
+        width: 30vh;
+        height: 30vh;
+        margin-bottom: 20px;
     }
-}
-
-@media screen and (max-width: 1000px) {
-  
 
     .locationdiv {
         height: 45vh;
     }
-
-    .locationbtnathome, .locationbtnatoffice {
-        width: 20vh;
-        height: 20vh;
-        margin-bottom: 20px;
-    }
-}
+  }

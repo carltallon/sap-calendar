@@ -21,19 +21,20 @@ const usernameshome = [];
 const usernamesoffice = [];
 
 for (let i = 0; i < locations.length; i++) {
-  if (locations[i].location === 'Home'){
+  if (locations[i].location === "Home"){
     usersathome.push(locations[i].UserID);
   }
-  if (locations[i].location === 'Office'){
+  else if (locations[i].location === "Office"){
     usersinoffice.push(locations[i].UserID);
   }   
 }
+
 
 const getusernameoffice = async (uid) => {
   const usernamequery = query(collection(db, "Usernames"), where("UserId", "==", uid));
   const usernamesnapshot = await getDocs(usernamequery);
   usernamesnapshot.forEach((doc) => {
-    usernamesoffice.push(doc.data());
+    usernamesoffice.push(doc.data().Username);
   });
 }
 
@@ -41,7 +42,7 @@ const getusernamehome = async (uid) => {
   const usernamequery = query(collection(db, "Usernames"), where("UserId", "==", uid));
   const usernamesnapshot = await getDocs(usernamequery);
   usernamesnapshot.forEach((doc) => {
-    usernameshome.push(doc.data());
+    usernameshome.push(doc.data().Username);
   });
 }
 
@@ -71,11 +72,25 @@ export default function Seat() {
 
               <h2>Seating</h2>
 
-              <h2>Colleagues in Office</h2>
-              {usernamesoffice.map(UserID => <button class ="users"> <a>{UserID}</a></button>)}
+              {usernamesoffice ? ( 
+              <div> 
+                <h2>Colleagues in Office</h2>
+                {usernamesoffice.map(Username => <button class ="users"> {Username}</button>)}
+              </div>)
+               : (<div><h4>Nobody in Office today!</h4></div>) 
+              }
 
-              <h2>Colleagues at home </h2>
-              {usersathome.map(UserID => <button class = "users"> <a>{UserID}</a></button>)}
+              {usernameshome ? (
+              <div>
+                  <h2>Colleagues at home </h2>
+                  {usernameshome.map(Username => <button class = "users">{Username}</button>)}
+              </div>)
+               : (
+              <div>
+                <h4>Nobody at Home today!</h4>
+              </div>) 
+              }
+              
 
           </div>
 

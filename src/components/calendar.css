@@ -53,7 +53,13 @@ body {
   margin: 10vh auto;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1450px) {
+  .upcomingeventsdiv {
+    margin-top: 20vh;
+  }
+}
+
+@media screen and (max-width: 1150px) {
   .upcomingeventsdiv {
     margin-top: 10vh;
   }
