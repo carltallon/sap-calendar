@@ -38,13 +38,14 @@ function workingfromhome() {
   locationbtnathome.style.border = '2px solid black';
 
   const currentDate = new Date();
-  
+  const formattedDate = currentDate.toLocaleDateString();
+
   deletelocations(uid, "Office");
 
   const locationRef = addDoc(collection(db, "Locations"), {
     location: "Home",
     UserID: uid,
-    Date: currentDate
+    Date: formattedDate
   });
 }
 
@@ -62,10 +63,12 @@ function workingfromoffice() {
     deletelocations(uid, "Home");
 
     const currentDate = new Date();
+    const formattedDate = currentDate.toLocaleDateString();
+
     const locationRef = addDoc(collection(db, "Locations"), {
       location: "Office",
       UserID: uid,
-      Date: currentDate
+      Date: formattedDate
     });
 
 }

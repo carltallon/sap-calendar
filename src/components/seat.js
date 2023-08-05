@@ -10,7 +10,10 @@ import { collection, query, where, getDocs, getFirestore } from "firebase/firest
 const locations = [];
 const auth = getAuth();
 
-const querySnapshot = await getDocs(collection(db, "Locations"));
+const currentDate = new Date();
+const formattedDate = currentDate.toLocaleDateString();
+
+const querySnapshot = await getDocs(collection(db, "Locations"), where("Date", "==", formattedDate));
 querySnapshot.forEach((doc) => {
   locations.push(doc.data());
 });
