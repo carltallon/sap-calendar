@@ -64,7 +64,7 @@ const Login = () => {
                   <input class = "logintext" id="loginEmail"  placeholder="Email" type = "text"/>
                   <input  class = "logintext" type="password" placeholder = "Password" id="loginPassword"/>
 
-                  <input class = "loginbutton" type="submit" id="loginButton" name="loginbutton" value="Log In" />
+                  <input class = "loginbutton" type="submit" id="loginButton" name="loginbutton" value="Let's Go!" />
                   
               </form>
 

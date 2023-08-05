@@ -1,5 +1,4 @@
 import './register.css';
-// Import the functions you need from the SDKs you need
 import {  set, ref } from "firebase/database";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from 'react';
@@ -58,38 +57,26 @@ const Register = () => {
         });
     
   };
-
-
   return (
-
     <div>
-
-        <div class ="registerdiv">
-            
-
-            <h2>Register</h2>  
-
+        <div class ="registerdiv"> 
+            <h2>Register</h2> 
 
             <form class ="registerform" onSubmit={SignUp}>
-              
+              <h4>Make this something memorable as this is how your coworkers will identify you!</h4>
               <input required class = "usernameinput" value={formData.username} onChange={handleInputChange} type="text" id="username" name="username" placeholder="Username" />
               <input required class = "emailinput" value={formData.email} onChange={handleInputChange} type="text" id="email" name="email" placeholder="E-mail" />
               <input required class = "passwordinput" value={formData.password} onChange={handleInputChange} type="password" id="password" name="password" placeholder="Password" />
 
-
-              <input type="submit" id="signUp" name="signUp" value="Register" />
-              
+              <input type="submit" id="signUp" name="signUp" value="Let's Go!" />              
             </form>
 
             <h3>Already have an account? <a class = "registerlink" href = "/login">Login</a></h3>
 
         </div>
     </div>
-    
-
   );
 }
-
 
 export default Register;
 

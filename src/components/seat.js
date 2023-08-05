@@ -5,7 +5,7 @@ import Loginenforcer from "../components/loginenforcer.js"
 import db from '../components/firebaseconfig'; 
 import { getAuth } from "firebase/auth";
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { collection, query, where, getDocs, getFirestore } from "firebase/firestore";
+import { collection, query, where, getDocs } from "firebase/firestore";
 
 const locations = [];
 const auth = getAuth();

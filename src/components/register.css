@@ -3,41 +3,63 @@
     max-width: 100vh;
     margin: 10vh auto;
     text-align: center;
-    
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
+
+
 
 .registerform {
     display: grid;
     grid-template-columns: auto;
-    gap: 2vh;
-    width: 20vw;
+    gap: 1vh;
+    width: 40vw;
     text-align: center;
     margin: 2vh auto;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .registerdiv h2 {
-    font-size: 2rem;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.registerdiv h3 {
+    font-weight: 500;
+    font-size: 1.4rem;
+}
+
+.registerdiv h4 {
+    font-size: 1rem;
+    margin: 0;
+    padding: 0;
+    font-weight: 200;
+
 }
 
 .usernameinput, .emailinput, .passwordinput {
     padding: 10px;
     width: 10vw;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     margin: 1vh auto;
     width: 20vw;
-    height: 50px;
-    font-size: 25px;
-    border-radius: 8px;
+    font-weight: 400;
+    height: 5vh;
+    border-radius: 4px;
     padding: 10px;
+    border: 0;
+    border-top: 2px solid black;
+    border-left: 2px solid black;
+    border-bottom: 1.8px solid black;
+    border-right: 1.8px solid black;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 #signUp {
     padding: 14px 40px;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     margin: 2vh auto;
     background-color: #1294F2;
-    border-radius: 8px;
-    font-family: Quicksand;
+    border-radius: 8px;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
