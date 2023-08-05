@@ -38,7 +38,6 @@ onAuthStateChanged(auth, (user) => {
     const uid = user.uid;
     fillevents(uid);
     getusername(uid);
-    
   } 
 });
 
@@ -54,7 +53,7 @@ const fillevents = async (uid) => {
     events[i].end = convertFirestoreTimestampToDate(events[i].end);
   }
 
-}
+};
 
 const getusername = async (uid) => {
   const usernamequery = query(collection(db, "Usernames"), where("UserId", "==", uid));
@@ -63,7 +62,7 @@ const getusername = async (uid) => {
     usernames.push(doc.data());
   });
   username = usernames[0].Username;
-}
+};
 
 // Function to convert timestamp to a JavaScript Date object
 const convertFirestoreTimestampToDate = (firestoreTimestamp) => {
@@ -102,7 +101,7 @@ const Sapcalendar = () => {
           
           <Location />
           
-          
+          { allEvents ? (
           <div class="upcomingeventsdiv" id = "upcomingeventsdiv">
 
             <h2>Your upcoming events</h2>
@@ -115,12 +114,12 @@ const Sapcalendar = () => {
             </button>)}
 
 
-          </div>
+          </div>) : (<div><h3>No Upcoming Events</h3></div>)}
         </div>
 
-
+        { allEvents ? (
         <div id="calendardiv">
-
+            
           <Calendar 
             localizer={localizer} 
             onSelectEvent={handleEventClick} 
@@ -136,7 +135,7 @@ const Sapcalendar = () => {
           <div class = "h4holder">
           <h4 class = "personalH4">personal event</h4> <h4 class = "workH4">work event</h4>
           </div>
-        </div>
+        </div>) : (<div>Loading...</div>)}
 
       </div>
     

@@ -45,8 +45,8 @@ const Register = () => {
             });
 
             const eventsref = addDoc(collection(db, "Usernames"), {
-              username: username,
-              UserID: user.uid
+              Username: username,
+              UserId: user.uid
             });
             alert('User created!');
             navigate("/");

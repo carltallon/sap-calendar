@@ -2,12 +2,13 @@ import './account.css';
 import Navbar from '../components/navbar.js';
 import Loginenforcer from "../components/loginenforcer.js";
 import { getAuth, onAuthStateChanged  } from "firebase/auth";
-
+import { useNavigate  } from 'react-router-dom';
 import { collection, query, where, getDocs } from "firebase/firestore";
 import db from '../components/firebaseconfig'; 
+
+
 const usernames = [];
 var username = "";
-
 const auth = getAuth();
 const user = auth.currentUser;
 
@@ -29,18 +30,23 @@ const getusername = async (uid) => {
   username = usernames[0].Username;
 }
 
-
-export default function account() {
+export default function Account() {
   const auth = getAuth();
   const user = auth.currentUser;
   const uid = user.uid;
   getusername(uid);
 
+  const navigate = useNavigate();
+
+  const signout = () => {
+    auth.signOut();
+    navigate("/");
+  }
+
   return (
 
     <div>
       { user ? 
-    
         <div>
           <Navbar />
 
@@ -49,8 +55,9 @@ export default function account() {
 
               <h3>Account Details</h3>
 
+              { username ? (
               <div class ="accountinfoholder">
-
+              
                 <div class = "accountitem">Email</div>
                 <div type = "text" id = "emailholder" class = "accountinfoitem">{ user.email }</div>
                 <div class = "accountitem">Unique ID</div>
@@ -58,10 +65,10 @@ export default function account() {
                 <div class = "accountitem">Username</div>
                 <div class = "accountinfoitem">{ username } </div>
 
-              </div>
+              </div>) : (<div>Loading...</div>)}
 
               <button class = "savebtn" >Save</button>
-              <button class = "signoutbtn" onClick={() => auth.signOut()}>Sign out</button>    
+              <button class = "signoutbtn" onClick={signout}>Sign out</button>    
             </div>
           </div>
 

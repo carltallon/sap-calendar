@@ -70,8 +70,7 @@ function workingfromoffice() {
       UserID: uid,
       Date: formattedDate
     });
-
-}
+};
 
 const deletelocations = async (uid,location) => {
   const eventsquery = query(collection(db, "Locations"), where("UserID", "==", uid), where("location", "==", location));
