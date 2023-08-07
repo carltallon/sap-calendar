@@ -7,6 +7,7 @@ import { getAuth } from "firebase/auth";
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { collection, query, where, getDocs } from "firebase/firestore";
 
+
 const locations = [];
 const auth = getAuth();
 
@@ -74,18 +75,16 @@ export default function Seat() {
           <div class ="seatdiv">
 
               <h2>Seating</h2>
-
-              {usernamesoffice ? ( 
+              <h2>Colleagues in Office</h2>
+              {usernamesoffice.length > 0 ? ( 
               <div> 
-                <h2>Colleagues in Office</h2>
                 {usernamesoffice.map(Username => <button class ="users"> {Username}</button>)}
               </div>)
                : (<div><h4>Nobody in Office today!</h4></div>) 
               }
-
-              {usernameshome ? (
+              <h2>Colleagues at home </h2>
+              {usernameshome.length > 0 ? (
               <div>
-                  <h2>Colleagues at home </h2>
                   {usernameshome.map(Username => <button class = "users">{Username}</button>)}
               </div>)
                : (
@@ -102,7 +101,7 @@ export default function Seat() {
       </div>
 
       
-      :<Loginenforcer />}
+      : <Loginenforcer />}
 
     </div>
     

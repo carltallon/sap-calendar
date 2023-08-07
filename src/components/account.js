@@ -67,7 +67,6 @@ export default function Account() {
 
               </div>) : (<div>Loading...</div>)}
 
-              <button class = "savebtn" >Save</button>
               <button class = "signoutbtn" onClick={signout}>Sign out</button>    
             </div>
           </div>

@@ -55,7 +55,6 @@ const Register = () => {
             const errorMessage = error.message;
             alert(errorMessage);
         });
-    
   };
   return (
     <div>

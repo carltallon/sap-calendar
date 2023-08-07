@@ -14,6 +14,8 @@ import Location from "../components/location.js";
 import React, { useState } from "react";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { useNavigate  } from 'react-router-dom';
+import Randomgreeting from './randomgreeting';
+
 
 const locales = {
   "en-US": require("date-fns/locale/en-US"),
@@ -32,6 +34,7 @@ const usernames = [];
 const auth = getAuth();
 const user = auth.currentUser;
 var username = "";
+
 onAuthStateChanged(auth, (user) => {
   if (user) {
     // User is signed in
@@ -85,7 +88,7 @@ const Sapcalendar = () => {
   };
 
 
-  const [allEvents, setAllEvents] = useState(events);
+  const [allEvents] = useState(events);
 
   return (
 
@@ -93,7 +96,12 @@ const Sapcalendar = () => {
 
       <Navbar />
 
-      <h3 class = "usergreeting"> Hello, {username}!</h3>
+      <Randomgreeting>
+        <div><h3 class = "usergreeting"> Hello, {username}!</h3></div>
+        <div><h3 class = "usergreeting"> What's up {username}!</h3></div>
+        <div><h3 class = "usergreeting"> Dia Duit {username}!</h3></div>
+        <div><h3 class = "usergreeting"> GutenTag {username}!</h3></div>
+      </Randomgreeting>
 
       <div class="calendarholdermain">
         
@@ -101,20 +109,19 @@ const Sapcalendar = () => {
           
           <Location />
           
-          { allEvents ? (
+          { allEvents.length > 0 ? (
           <div class="upcomingeventsdiv" id = "upcomingeventsdiv">
-
             <h2>Your upcoming events</h2>
-
-          
             {events.slice(0, 3).map(event => <button class="upcomingeventsbutton"> 
 
             <Link to={`/event/${event.eventID}`}>{event.title}</Link>          
 
             </button>)}
-
-
-          </div>) : (<div><h3>No Upcoming Events</h3></div>)}
+          </div>) : 
+            (<div class="upcomingeventsdiv" id = "upcomingeventsdiv">
+              <h2>Your upcoming events</h2>
+              <h3>Nothing here yet..</h3>
+              </div>)}
         </div>
 
         { allEvents ? (

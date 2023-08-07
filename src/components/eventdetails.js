@@ -39,6 +39,7 @@ export const EventDetails = () => {
 
     const [event, setEvent] = useState(null);
 
+    //get event function 
     const getEventByEventID = (eventIDInt) => {
         const eventsquery = query(collection(db, "Events"), where("eventID", "==", eventIDInt));
       
@@ -56,7 +57,7 @@ export const EventDetails = () => {
           });
     };
 
-
+    //call get event function and WAIT until returns
     useEffect(() => {
         getEventByEventID(eventIDInt)
           .then((eventsArray) => {
@@ -67,6 +68,7 @@ export const EventDetails = () => {
           });
     }, []);
 
+    //define event variables
     var eventname = "";
     var eventstart = "";
     var eventend = "";
@@ -74,6 +76,7 @@ export const EventDetails = () => {
     var eventlocation = "";
     var eventtype = "";
 
+    //fill  variables when event is found 
     if (event !== null){
         eventname = event[0].title;
         const eventstartdate = convertFirestoreTimestampToDate(event[0].start);
@@ -85,18 +88,21 @@ export const EventDetails = () => {
         eventlocation = event[0].location;
         eventcomment = event[0].comment;
         eventtype = event[0].eventtype;
-
     }
 
-    const RemoveData = async() => {
-        await deleteDoc(doc(db, "Events", eventID));
-        console.log(eventID)
-        alert("Event Deleted");
-        navigate("/")
-    }
-
+    const RemoveData = (eventIDInt) => {
+      deleteDoc(doc(db, "Events", eventIDInt))
+        .then(() => {
+          console.log(eventIDInt);
+          alert("Event Deleted");
+          navigate("/");
+        })
+        .catch((error) => {
+          console.error("Error deleting event: ", error);
+          // Handle error if needed
+        });
+    };
     const [eventnamestate, setEventnamestate] = useState(eventname); 
-    console.log("eventstate:" , eventnamestate);
 
     const handleInputChange = (event) => {
         setEventnamestate(event.target.value); // Update the username state with the new input value
@@ -112,14 +118,12 @@ export const EventDetails = () => {
 
         const eventref = doc(db, "Events", eventID);
 
-        // Set the "capital" field of the city 'DC'
         await updateDoc(eventref, {
             title: title,
             eventID: eventID,
             location: location,
             comment: comment
         });
-        console.log(eventID)
         alert("Event Updated");
         navigate("/")
     }
