@@ -57,7 +57,7 @@ const Login = () => {
 
             <div class = "saplogodivlogin"></div>
             
-            <h2>WhereAmIAt</h2>
+            <h2>Login</h2>
           
               <form  class= "loginform" onSubmit={handleSubmit}>
 
@@ -68,7 +68,7 @@ const Login = () => {
                   
               </form>
 
-              <h3>Don't have an account? <a class = "registerlink" href = "/register">Register here</a></h3>
+              <h3>Don't have an account? <a class = "registerlink" href = "/register">Register here!</a></h3>
             
         </div>
       </div>

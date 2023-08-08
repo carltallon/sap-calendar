@@ -102,13 +102,7 @@ export const EventDetails = () => {
           // Handle error if needed
         });
     };
-    const [eventnamestate, setEventnamestate] = useState(eventname); 
-
-    const handleInputChange = (event) => {
-        setEventnamestate(event.target.value); // Update the username state with the new input value
-    };
-
-
+    
     const Updatedata = async() => {
 
         const title = document.getElementById('titleupdate').value;

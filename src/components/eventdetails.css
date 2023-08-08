@@ -10,6 +10,12 @@
     
 }
 
+.eventdetailsgrid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .eventdetailsdiv h1 {
     margin: 0;
     padding: 0;
@@ -23,8 +29,21 @@
 
 .deleteeventbtn, .saveeventbtn {
     padding: 10px 20px;
-    border: 2px solid black;
     font-size: 1.4rem;
+    border: 1px 1px solid black;
+    border-radius: 8px;
+}
+
+.deleteeventbtn:hover {
+    cursor: pointer;
+    background-color: white;
+    color: rgba(0, 0, 0, 0.582);
+}
+
+.saveeventbtn:hover {
+    cursor: pointer;
+    background-color: white;
+    color: rgba(0, 0, 0, 0.582);
 }
 
 .eventdetailsfooter {
@@ -40,7 +59,6 @@
 .eventdetailsinfo {
     padding: 20px;
     text-align: left;
-    border-bottom: 2px solid black;
     font-size: 1.6rem;
     color: #41a3ff;
 }

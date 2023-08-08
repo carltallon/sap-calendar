@@ -57,9 +57,30 @@ const Register = () => {
         });
   };
   return (
-    <div>
+    <div class="wrapper">
+
+      <div class="particle elem1 anim-delay1"></div>
+      <div class="particle elem2 anim-delay5"></div>
+      <div class="particle elem3 anim-delay3"></div>
+      <div class="particle elem4 anim-delay8"></div>
+      <div class="particle elem5 anim-delay9"></div>
+      <div class="particle elem6 anim-delay2"></div>
+      <div class="particle elem7 anim-delay4"></div>
+      <div class="particle elem8 anim-delay3"></div>
+      <div class="particle elem9 anim-delay10"></div>
+      <div class="particle elem8 anim-delay11"></div>
+      <div class="particle elem1 anim-delay14"></div>
+      <div class="particle elem17 anim-delay18"></div>
+      <div class="particle elem16 anim-delay9"></div>
+      <div class="particle elem9 anim-delay10"></div>
+      <div class="particle elem18 anim-delay11"></div>
+      <div class="particle elem13 anim-delay16"></div>
+      <div class="particle elem18 anim-delay6"></div>
+
         <div class ="registerdiv"> 
-            <h2>Register</h2> 
+        <div class = "saplogodivlogin"></div>
+            
+            <h2>Create a Account</h2> 
 
             <form class ="registerform" onSubmit={SignUp}>
               <h4>Make this something memorable as this is how your coworkers will identify you!</h4>
@@ -70,7 +91,7 @@ const Register = () => {
               <input type="submit" id="signUp" name="signUp" value="Let's Go!" />              
             </form>
 
-            <h3>Already have an account? <a class = "registerlink" href = "/login">Login</a></h3>
+            <h3>Already have an account? <a class = "registerlink" href = "/login">Login here!</a></h3>
 
         </div>
     </div>
