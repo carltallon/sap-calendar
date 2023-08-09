@@ -1,19 +1,17 @@
 .eventdetailsdiv {
-    width: 40vw;
+    width: 60vw;
     font-size: 1.2rem;
     margin: 5vh auto;
-    padding: 10vh;
     border: 2px solid rgb(150, 150, 150);
     background-color: rgba(164, 164, 164, 0.406);
     box-shadow: 5px 5px rgba(164, 164, 164, 0.253);
-    
-    
+    padding: 5vh;
 }
 
+
 .eventdetailsgrid {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: grid;
+    
 }
 
 .eventdetailsdiv h1 {
@@ -57,7 +55,7 @@
 
 
 .eventdetailsinfo {
-    padding: 20px;
+    padding: 10px;
     text-align: left;
     font-size: 1.6rem;
     color: #41a3ff;

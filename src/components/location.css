@@ -46,7 +46,6 @@
 
 .locationbtnatoffice:hover {
     cursor: pointer;
-    border: 1px solid grey;
 }
 
 .locationbtnathome {
@@ -72,15 +71,14 @@
 
 .locationbtnathome:hover {
     cursor: pointer;
-    border: 1px solid grey;
 }
 
 
 
 @media screen and (max-width: 1150px) {
     .locationbtnathome, .locationbtnatoffice {
-        width: 30vh;
-        height: 30vh;
+        width: 20vh;
+        height: 20vh;
         margin-bottom: 20px;
     }
 

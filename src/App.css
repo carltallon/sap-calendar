@@ -1,13 +1,9 @@
-
-
-
 @media screen and (max-width: 600px) { 
  #background {
   width: 60vh;
  }
 
 }
-
 
 .background {
   background-color: rgb(255, 255, 255);

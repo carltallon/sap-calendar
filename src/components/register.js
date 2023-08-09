@@ -13,6 +13,7 @@ const auth = getAuth();
 const Register = () => {
 
   const navigate = useNavigate();
+  const [errorMessageState, seterrorMessageState] = useState('No Error');
 
   const [formData, setFormData] = useState({
     email: '',
@@ -48,14 +49,30 @@ const Register = () => {
               Username: username,
               UserId: user.uid
             });
-            alert('User created!');
+            alertbox('User created! Welcome', username);
+            setTimeout(() => {
+              // This function will pause for 20 seconds and then continue
+            }, 2000000);
             navigate("/");
         })
         .catch((error) => {
             const errorMessage = error.message;
-            alert(errorMessage);
+            alertbox(errorMessage);
         });
   };
+
+
+  const alertbox = (errorMessage) => {
+    var modal = document.getElementById("alertModal");
+    modal.style.display = "block";
+    seterrorMessageState(errorMessage);
+  }
+
+  const closealert = () => {
+    var modal = document.getElementById("alertModal");
+    modal.style.display = "none";
+  }
+
   return (
     <div class="wrapper">
 
@@ -79,6 +96,15 @@ const Register = () => {
 
         <div class ="registerdiv"> 
         <div class = "saplogodivlogin"></div>
+
+        <div id="alertModal" class="modal">
+
+          <div class="modal-content">
+            <span onClick={closealert} class="close">&times;</span>
+            <p>{errorMessageState}</p>
+          </div>
+
+        </div>
             
             <h2>Create a Account</h2> 
 

@@ -36,7 +36,6 @@
 
 .users:hover {
     cursor: pointer;
-    box-shadow: 2px 2px 2px 2px whitesmoke;
 }
 
 @media screen and (max-width: 1400px) {

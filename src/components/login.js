@@ -11,7 +11,7 @@ const Login = () => {
 
   const navigate = useNavigate();
   const auth = getAuth();
-   
+  const [errorMessageState, seterrorMessageState] = useState('No Error');
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -27,8 +27,19 @@ const Login = () => {
             })
             .catch((error) => {
                 const errorMessage = error.message;
-                alert(errorMessage);
+                alertbox(errorMessage);
             });
+  }
+
+  const alertbox = (errorMessage) => {
+    var modal = document.getElementById("alertModal");
+    modal.style.display = "block";
+    seterrorMessageState(errorMessage);
+  }
+
+  const closealert = () => {
+    var modal = document.getElementById("alertModal");
+    modal.style.display = "none";
   }
 
   return (
@@ -56,6 +67,16 @@ const Login = () => {
         <div id="logindiv">
 
             <div class = "saplogodivlogin"></div>
+
+            
+            <div id="alertModal" class="modal">
+
+              <div class="modal-content">
+                <span onClick={closealert} class="close">&times;</span>
+                <p>{errorMessageState}</p>
+              </div>
+
+            </div>
             
             <h2>Login</h2>
           

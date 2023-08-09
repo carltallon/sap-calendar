@@ -126,10 +126,10 @@ export const EventDetails = () => {
         <div>
             <Navbar />
             <div class = "eventdetailsdiv">
-              <h1>Event Details</h1>
+              
                 {event ? (
-                <div>
-                    
+                <div class = "eventdetailsgrid">  
+                    <h1>Event Details</h1>
                     <div class = "eventdetailsinfo">Event Name:  <p>{ eventname }</p> </div>
                     <div class = "eventdetailsinfo">Start date: <p>{ eventstart }</p></div>
                     <div class = "eventdetailsinfo">End date: <p>{ eventend }</p> </div>
@@ -141,7 +141,9 @@ export const EventDetails = () => {
                         <button onClick = {RemoveData} class = "deleteeventbtn">Delete Event</button>
                         <button onClick = {Updatedata} class = "saveeventbtn">Save Event</button>
                     </div>
-                </div>) : (<div>Loading.. </div>)}
+                </div>
+                ) : (<div>Loading.. </div>)}
+
                     
             </div>
         </div>

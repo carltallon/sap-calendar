@@ -88,7 +88,7 @@ const Sapcalendar = () => {
   };
 
 
-  const [allEvents] = useState(events);
+  const [allEvents, setAllEvents] = useState(events);
 
   return (
 
@@ -96,12 +96,13 @@ const Sapcalendar = () => {
 
       <Navbar />
 
+      { username ? (
       <Randomgreeting>
         <div><h3 class = "usergreeting"> Hello, {username}!</h3></div>
         <div><h3 class = "usergreeting"> What's up {username}!</h3></div>
         <div><h3 class = "usergreeting"> Dia Duit {username}!</h3></div>
-        <div><h3 class = "usergreeting"> GutenTag {username}!</h3></div>
-      </Randomgreeting>
+        <div><h3 class = "usergreeting"> Guten Tag {username}!</h3></div>
+      </Randomgreeting>) : (<div><h3>Loading..</h3> </div>)}
 
       <div class="calendarholdermain">
         
@@ -124,7 +125,7 @@ const Sapcalendar = () => {
               </div>)}
         </div>
 
-        { allEvents ? (
+
         <div id="calendardiv">
             
           <Calendar 
@@ -133,16 +134,18 @@ const Sapcalendar = () => {
             events={allEvents} 
             startAccessor="start" 
             eventPropGetter={(event) => {
-              const backgroundColor = event.eventtype ? "#687688" : "#519D9F";
-              return { style: { backgroundColor } }
+              const backgroundColor = event.eventtype === 'personal' ? '#687688' : event.eventtype === 'work' ? '#519D9F' : 'gray';
+              return { style: { backgroundColor } };
             }}
-            endAccessor="end" style={{ height: 500, margin: "1vh" }} 
+            endAccessor="end" 
+            style={{ height: 500, margin: "1vh" }} 
           />
 
           <div class = "h4holder">
           <h4 class = "personalH4">personal event</h4> <h4 class = "workH4">work event</h4>
-          </div>
-        </div>) : (<div>Loading...</div>)}
+        </div>
+
+        </div>
 
       </div>
     
