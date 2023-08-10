@@ -6,16 +6,18 @@
     background-color: rgba(164, 164, 164, 0.406);
     box-shadow: 5px 5px rgba(164, 164, 164, 0.253);
     padding: 5vh;
+    border-radius: 2px;
 }
 
 
 .eventdetailsgrid {
     display: grid;
+    grid-template-columns: auto auto;
+    margin-top: 4vh;
     
 }
 
 .eventdetailsdiv h1 {
-    margin: 0;
     padding: 0;
     font-size: 3rem;
     font-style: normal;
@@ -25,23 +27,50 @@
     text-align: center;
 }
 
-.deleteeventbtn, .saveeventbtn {
-    padding: 10px 20px;
-    font-size: 1.4rem;
-    border: 1px 1px solid black;
+ .saveeventbtn {
+    padding: 15px 30px;
+    border: none;
+    margin: 10px;
+    margin-top: 1vh;
+    color: black;
+    background-color: #1294F2;
     border-radius: 8px;
+    font-size: 1.2rem;
+    width: 10vw;
+    height: 5vh;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-style: normal;
+    font-weight: 200;
+    line-height: normal;
 }
 
+
+.deleteeventbtn {
+    padding: 15px 30px;
+    border: none;
+    margin: 10px;
+    margin-top: 1vh;
+    color: black;
+    background-color: #ee1c1c;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    width: 10vw;
+    height: 5vh;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-style: normal;
+    font-weight: 200;
+    line-height: normal;
+}
 .deleteeventbtn:hover {
     cursor: pointer;
     background-color: white;
-    color: rgba(0, 0, 0, 0.582);
+    color: #ee1c1c;
 }
 
 .saveeventbtn:hover {
     cursor: pointer;
     background-color: white;
-    color: rgba(0, 0, 0, 0.582);
+    color: #1294F2;
 }
 
 .eventdetailsfooter {
@@ -50,7 +79,6 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    padding: 1vh;
 }
 
 
@@ -59,6 +87,7 @@
     text-align: left;
     font-size: 1.6rem;
     color: #41a3ff;
+    font-weight: 700;
 }
 
 .eventdetailsinfo p {
@@ -66,4 +95,5 @@
     color: black;
     padding: 5px;
     margin: 1vh;
+    font-weight: 100;
 }

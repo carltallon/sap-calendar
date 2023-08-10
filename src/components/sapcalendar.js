@@ -12,6 +12,7 @@ import { Link } from 'react-router-dom';
 import Navbar from "../components/navbar.js";
 import Location from "../components/location.js";
 import React, { useState } from "react";
+import { useEffect } from 'react';
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { useNavigate  } from 'react-router-dom';
 import Randomgreeting from './randomgreeting';
@@ -86,6 +87,7 @@ const Sapcalendar = () => {
     // Add your custom logic here, e.g., display event details in a modal
     navigate(`/event/${event.eventID}`);    
   };
+
 
 
   const [allEvents, setAllEvents] = useState(events);

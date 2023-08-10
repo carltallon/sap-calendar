@@ -65,13 +65,7 @@ export default function Seat() {
 
   const[user] = useAuthState(auth);
 
-  useEffect(() => {
-    // Reload the page on first load
-    if (!sessionStorage.getItem('loadedOnce')) {
-      sessionStorage.setItem('loadedOnce', 'true');
-      window.location.reload();
-    }
-  }, []);
+  
 
   return (
     <div>

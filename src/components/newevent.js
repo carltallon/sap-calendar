@@ -5,7 +5,7 @@ import Loginenforcer from "../components/loginenforcer.js"
 
 import { Link } from "react-router-dom";
 import { getAuth } from "firebase/auth";
-
+import React, { useState } from 'react';
 import { useNavigate  } from 'react-router-dom';
 import { collection, addDoc } from "firebase/firestore"; 
 
@@ -16,6 +16,7 @@ function getRandomInt(min, max) {
 export default function Newevent() {
 
     const navigate = useNavigate();
+    const [GoodMessageState, setGoodMessageState] = useState('No Error');
     
     const auth = getAuth();
 
@@ -58,10 +59,20 @@ export default function Newevent() {
             eventtype: eventtype
         });
 
-        alert("Event Created" , title);
+        goodalertbox("Event Created!", title);
 
-        navigate("/");
+    }
 
+    const goodalertbox = (message) => {
+        var modal = document.getElementById("goodModal");
+        modal.style.display = "block";
+        setGoodMessageState(message);
+      }
+    
+    const closealert = () => {
+      var modal = document.getElementById("goodModal");
+      modal.style.display = "none";
+      navigate("/");
     }
         
 
@@ -71,6 +82,16 @@ export default function Newevent() {
         { user ? 
     <div>
         <NavbarNoSearch />
+
+        <div id="goodModal" class="modal">
+
+              <div class="modal-contentgood">
+                <p>{GoodMessageState}</p>
+                <button class = "continuebutton" onClick={closealert}><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+              </div>
+
+        </div>
+
         <div class="dashboard__wrapper">
             <div class="dashboard__body">
                 <div class="start__block">

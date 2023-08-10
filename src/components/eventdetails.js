@@ -110,22 +110,22 @@ export const EventDetails = () => {
         <div>
             <NavbarNoSearch />
             <div class = "eventdetailsdiv">
-              
                 {event ? (
-                <div class = "eventdetailsgrid">  
-                    <h1>Event Details</h1>
-                    <div class = "eventdetailsinfo">Event Name:  <p>{ eventname }</p> </div>
-                    <div class = "eventdetailsinfo">Start date: <p>{ eventstart }</p></div>
-                    <div class = "eventdetailsinfo">End date: <p>{ eventend }</p> </div>
-                    <div class = "eventdetailsinfo">Event type: <p>{eventtype}</p></div>
-                    <div class = "eventdetailsinfo">Event Location: <p>{eventlocation}</p></div>
-                    <div class = "eventdetailsinfo">Event Comment: <p>{eventcomment}</p></div>
+                <div>
+                  <div class = "eventdetailsgrid">  
+                      <div class = "eventdetailsinfo">Event Name:  <p>{ eventname }</p> </div>
+                      <div class = "eventdetailsinfo">Start date: <p>{ eventstart }</p></div>
+                      <div class = "eventdetailsinfo">End date: <p>{ eventend }</p> </div>
+                      <div class = "eventdetailsinfo">Event type: <p>{eventtype}</p></div>
+                      <div class = "eventdetailsinfo">Event Location: <p>{eventlocation}</p></div>
+                      <div class = "eventdetailsinfo">Event Comment: <p>{eventcomment}</p></div>
+                  </div>
 
-                    <div class = "eventdetailsfooter">
-                        <button onClick = {deleteevent} class = "deleteeventbtn">Delete Event</button>
-                        <button class = "saveeventbtn">Save Event</button>
-                    </div>
-                </div>
+                  <div class = "eventdetailsfooter">
+                    <button onClick = {deleteevent} class = "deleteeventbtn">Delete Event</button>
+                    <button class = "saveeventbtn">Save Event</button>
+                  </div>
+              </div>
                 ) : (<div>Loading.. </div>)}
 
                     
