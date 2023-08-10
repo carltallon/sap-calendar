@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 export default function Navbar( {events} ) {
 
     const [allEvents, setAllEvents] = useState(events);
-    const [filteredEvents, setFilteredEvents] = useState(events);
+    const [filteredEvents, setFilteredEvents] = useState('');
     const [searchTimeout, setSearchTimeout] = useState(null);
     
     const handleSearch = (query) => {

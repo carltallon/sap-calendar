@@ -11,7 +11,7 @@ const SearchBar = ({ allEvents, onSearch }) => {
   };
 
   return (
-    <div>
+    <form class = "search-container">
       <input
         type="text"
         class = "searchbar"
@@ -19,7 +19,8 @@ const SearchBar = ({ allEvents, onSearch }) => {
         value={searchQuery}
         onChange={handleSearchChange}
       />
-    </div>
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
   );
 };
 
