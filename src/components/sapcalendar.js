@@ -94,7 +94,7 @@ const Sapcalendar = () => {
 
     <div>
 
-      <Navbar />
+      <Navbar events = {allEvents} />
 
       { username ? (
       <Randomgreeting>

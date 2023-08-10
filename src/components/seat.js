@@ -6,7 +6,7 @@ import db from '../components/firebaseconfig';
 import { getAuth } from "firebase/auth";
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { collection, query, where, getDocs } from "firebase/firestore";
-
+import { useEffect } from 'react';
 
 const locations = [];
 const auth = getAuth();
@@ -64,6 +64,14 @@ for (let i = 0; i < usersathome.length; i++) {
 export default function Seat() {
 
   const[user] = useAuthState(auth);
+
+  useEffect(() => {
+    // Reload the page on first load
+    if (!sessionStorage.getItem('loadedOnce')) {
+      sessionStorage.setItem('loadedOnce', 'true');
+      window.location.reload();
+    }
+  }, []);
 
   return (
     <div>

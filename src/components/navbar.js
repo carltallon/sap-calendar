@@ -2,8 +2,38 @@
 import './navbar.css';
 
 import { NavLink } from "react-router-dom";
+import React, { useState } from "react";
+import SearchBar from "../components/searchbar.js";
+import { Link } from 'react-router-dom';
 
-export default function navbar() {
+export default function Navbar( {events} ) {
+
+    const [allEvents, setAllEvents] = useState(events);
+    const [filteredEvents, setFilteredEvents] = useState(events);
+    const [searchTimeout, setSearchTimeout] = useState(null);
+    
+    const handleSearch = (query) => {
+        clearTimeout(searchTimeout);
+    
+        const timeoutId = setTimeout(() => {
+          const filtered = allEvents.filter((event) =>
+            event.title.toLowerCase().includes(query.toLowerCase())
+          );
+          setFilteredEvents(filtered);
+        }, 20); // Adjust the debounce interval as needed (e.g., 300ms)
+    
+        setSearchTimeout(timeoutId);
+      };
+
+    const FilteredEventsList = ({ filteredEvents }) => {
+        return (
+          <div class = "searchresult">
+            {filteredEvents.map((event, index) => (
+                <div class = "individualsearchresult" key={index}><Link to={`/event/${event.eventID}`}>{event.title}</Link>  </div>
+            ))}
+          </div>
+        );
+    };
 
   return (
 
@@ -19,7 +49,18 @@ export default function navbar() {
                 <span class="slider round"></span>
             </label>
 
+            
         </ul>
+
+        <div>
+
+            <SearchBar allEvents={allEvents} onSearch={handleSearch} />
+
+            {filteredEvents && filteredEvents.length > 0 && (
+                <FilteredEventsList filteredEvents={filteredEvents}/> 
+            )}
+
+        </div>
 
         <ul>
 

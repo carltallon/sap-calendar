@@ -16,7 +16,6 @@
     padding: 5px;
     border-bottom: 1px solid #515151;
     display: flex;
-    
     background-color: rgba(164, 164, 164, 0.267);
     font-size: 22.5px;
     justify-content: space-between;
@@ -35,9 +34,7 @@
     margin: 5px;
   }
   
-  #greetingnavbar {
-    color: white;
-  }
+  
   
   
   #navigation li a {

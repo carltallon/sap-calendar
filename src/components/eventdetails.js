@@ -90,38 +90,24 @@ export const EventDetails = () => {
         eventtype = event[0].eventtype;
     }
 
-    const RemoveData = (eventIDInt) => {
-      deleteDoc(doc(db, "Events", eventIDInt))
-        .then(() => {
-          console.log(eventIDInt);
-          alert("Event Deleted");
-          navigate("/");
-        })
-        .catch((error) => {
-          console.error("Error deleting event: ", error);
-          // Handle error if needed
+    const deleteevent = async (eventIDInt) => {
+      const eventsquery = query(collection(db, "Events"), where("eventID", "==", eventIDInt));
+      const querySnapshot = await getDocs(eventsquery);
+      console.log(querySnapshot.data);
+      // Check if there are matching documents
+      if (!querySnapshot.empty) {
+        // There is at least one matching document
+        // Assuming you want to delete all matching documents, you can loop through the documents
+        querySnapshot.forEach((doc) => {
+          deleteDoc(doc.ref);
         });
+        console.log('Documents deleted successfully.');
+      } else {
+        // No matching documents found
+        console.log('No matching documents found.');
+      }
     };
     
-    const Updatedata = async() => {
-
-        const title = document.getElementById('titleupdate').value;
-        const location = document.getElementById('locationupdate').value;
-        const comment = document.getElementById('commentupdate').value;
-
-
-        const eventref = doc(db, "Events", eventID);
-
-        await updateDoc(eventref, {
-            title: title,
-            eventID: eventID,
-            location: location,
-            comment: comment
-        });
-        alert("Event Updated");
-        navigate("/")
-    }
-
     return (
         <div>
             <Navbar />
@@ -138,8 +124,8 @@ export const EventDetails = () => {
                     <div class = "eventdetailsinfo">Event Comment: <p>{eventcomment}</p></div>
 
                     <div class = "eventdetailsfooter">
-                        <button onClick = {RemoveData} class = "deleteeventbtn">Delete Event</button>
-                        <button onClick = {Updatedata} class = "saveeventbtn">Save Event</button>
+                        <button onClick = {deleteevent} class = "deleteeventbtn">Delete Event</button>
+                        <button class = "saveeventbtn">Save Event</button>
                     </div>
                 </div>
                 ) : (<div>Loading.. </div>)}
