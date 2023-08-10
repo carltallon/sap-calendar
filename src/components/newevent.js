@@ -1,6 +1,6 @@
 import './newevent.css';
 import db from '../components/firebaseconfig'; 
-import Navbar from "../components/navbar.js";
+import NavbarNoSearch from "../components/navbarnosearch.js";
 import Loginenforcer from "../components/loginenforcer.js"
 
 import { Link } from "react-router-dom";
@@ -70,7 +70,7 @@ export default function Newevent() {
 
         { user ? 
     <div>
-        <Navbar />
+        <NavbarNoSearch />
         <div class="dashboard__wrapper">
             <div class="dashboard__body">
                 <div class="start__block">

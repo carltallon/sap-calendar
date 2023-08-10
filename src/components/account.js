@@ -1,5 +1,5 @@
 import './account.css';
-import Navbar from '../components/navbar.js';
+import NavbarNoSearch from '../components/navbarnosearch.js';
 import Loginenforcer from "../components/loginenforcer.js";
 import { getAuth, onAuthStateChanged  } from "firebase/auth";
 import { useNavigate  } from 'react-router-dom';
@@ -48,7 +48,7 @@ export default function Account() {
     <div>
       { user ? 
         <div>
-          <Navbar />
+          <NavbarNoSearch />
 
             <div class ="mainaccountdiv">
                 

@@ -2,11 +2,9 @@
 import "./eventdetails.css";
 import { useParams } from 'react-router-dom';
 import { getAuth  } from "firebase/auth";
-import { getFirestore } from "firebase/firestore";
-import { initializeApp } from "firebase/app";
 import { doc, deleteDoc, updateDoc  } from "firebase/firestore";
 import { collection, query, where, getDocs } from "firebase/firestore";
-import Navbar from "../components/navbar.js";
+import NavbarNoSearch from "../components/navbarnosearch.js";
 import React, { useEffect, useState } from "react";
 
 import { useNavigate  } from 'react-router-dom';
@@ -110,7 +108,7 @@ export const EventDetails = () => {
     
     return (
         <div>
-            <Navbar />
+            <NavbarNoSearch />
             <div class = "eventdetailsdiv">
               
                 {event ? (

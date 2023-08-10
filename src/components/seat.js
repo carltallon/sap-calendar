@@ -1,6 +1,6 @@
 import './seat.css';
 
-import Navbar from "../components/navbar.js";
+import NavbarNoSearch from "../components/navbarnosearch.js";
 import Loginenforcer from "../components/loginenforcer.js"
 import db from '../components/firebaseconfig'; 
 import { getAuth } from "firebase/auth";
@@ -78,7 +78,7 @@ export default function Seat() {
 
       { user ? 
       <div>
-        <Navbar />
+        <NavbarNoSearch />
         <div class = "mainseatdiv">
           <div class ="seatdiv">
 
