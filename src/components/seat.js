@@ -79,14 +79,14 @@ export default function Seat() {
               <h2>Seating</h2>
               <h2>Colleagues in Office</h2>
               {usernamesoffice.length > 0 ? ( 
-              <div> 
+              <div class = "userholder"> 
                 {usernamesoffice.map(Username => <button class ="users"> {Username}</button>)}
               </div>)
                : (<div><h4>Nobody in Office today!</h4></div>) 
               }
               <h2>Colleagues at home </h2>
               {usernameshome.length > 0 ? (
-              <div>
+              <div class = "userholder">
                   {usernameshome.map(Username => <button class = "users">{Username}</button>)}
               </div>)
                : (

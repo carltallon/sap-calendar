@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import './searchbar.css';
 
-const SearchBar = ({ allEvents, onSearch }) => {
+ 
+
+const SearchBar = ({ onSearch }) => {
   const [searchQuery, setSearchQuery] = useState('');
+
+ 
 
   const handleSearchChange = (event) => {
     const query = event.target.value;
@@ -10,18 +14,29 @@ const SearchBar = ({ allEvents, onSearch }) => {
     onSearch(query);
   };
 
+ 
+
+  const handleSearchSubmit = (event) => {
+    event.preventDefault();
+    setSearchQuery('');
+  };
+
+ 
+
   return (
-    <form class = "search-container">
-      <input
-        type="text"
-        class = "searchbar"
-        placeholder="Search for an Event.."
-        value={searchQuery}
-        onChange={handleSearchChange}
-      />
-      <button type="submit"><i class="fa fa-search"></i></button>
-    </form>
+  <form className="search-container" onSubmit={handleSearchSubmit}>
+  <input
+          type="text"
+          className="searchbar"
+          placeholder="Search for an Event.."
+          value={searchQuery}
+          onChange={handleSearchChange}
+        />
+  <button type="submit"><i className="fa fa-search"></i></button>
+  </form>
   );
 };
+
+ 
 
 export default SearchBar;

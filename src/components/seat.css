@@ -3,6 +3,8 @@
     text-align: center;
     width: 20vw;
     padding: 1vh;
+    display: grid;
+    grid-template-columns: auto;
     border: 2px solid rgb(150, 150, 150);
     background-color: rgba(164, 164, 164, 0.406);
     box-shadow: 5px 5px rgba(164, 164, 164, 0.253);
@@ -19,15 +21,21 @@
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+.userholder {
+    display: grid;
+    grid-template-columns: auto;
+    text-align: center;
+    margin: auto;
+}
+
 .users { 
     padding: 2px;
     font-size: 1.8rem;
     color: black;
     height: 5vh;
-    width: 10vw;
+    width: 15vw;
     border: 0;
     background-color: transparent;
-    margin-top: 1vh;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-style: normal;
     font-weight: 200;

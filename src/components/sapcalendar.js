@@ -103,7 +103,6 @@ const Sapcalendar = () => {
         <div><h3 class = "usergreeting"> Hello, {username}!</h3></div>
         <div><h3 class = "usergreeting"> What's up {username}!</h3></div>
         <div><h3 class = "usergreeting"> Dia Duit {username}!</h3></div>
-        <div><h3 class = "usergreeting"> Guten Tag {username}!</h3></div>
       </Randomgreeting>) : (<div><h3>Loading..</h3> </div>)}
 
       <div class="calendarholdermain">
