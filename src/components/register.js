@@ -14,6 +14,8 @@ const Register = () => {
 
   const navigate = useNavigate();
   const [errorMessageState, seterrorMessageState] = useState('No Error');
+  const [GoodMessageState, setGoodMessageState] = useState('No Error');
+  
 
   const [formData, setFormData] = useState({
     email: '',
@@ -49,11 +51,7 @@ const Register = () => {
               Username: username,
               UserId: user.uid
             });
-            alertbox('User created! Welcome', username);
-            setTimeout(() => {
-              // This function will pause for 20 seconds and then continue
-            }, 2000000);
-            navigate("/");
+            goodalertbox(username);
         })
         .catch((error) => {
             const errorMessage = error.message;
@@ -61,6 +59,12 @@ const Register = () => {
         });
   };
 
+
+  const goodalertbox = (message) => {
+    var modal = document.getElementById("goodModal");
+    modal.style.display = "block";
+    setGoodMessageState(message);
+  }
 
   const alertbox = (errorMessage) => {
     var modal = document.getElementById("alertModal");
@@ -72,6 +76,13 @@ const Register = () => {
     var modal = document.getElementById("alertModal");
     modal.style.display = "none";
   }
+
+  const closealertcontinue = () => {
+    var modal = document.getElementById("alertModal");
+    modal.style.display = "none";
+    navigate("/");
+  }
+  
 
   return (
     <div class="wrapper">
@@ -94,6 +105,13 @@ const Register = () => {
       <div class="particle elem13 anim-delay16"></div>
       <div class="particle elem18 anim-delay6"></div>
 
+      <div id="goodModal" class="modal">
+              <div class="modal-contentgood">
+                <p>User created! Welcome {GoodMessageState}! </p>
+                <button class = "continuebutton" onClick={closealertcontinue}><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+              </div>
+        </div>
+
         <div class ="registerdiv"> 
         <div class = "saplogodivlogin"></div>
 
@@ -101,7 +119,7 @@ const Register = () => {
 
           <div class="modal-content">
             <span onClick={closealert} class="close">&times;</span>
-            <p>{errorMessageState}</p>
+            <p> Oops! Try again. {errorMessageState}</p>
           </div>
 
         </div>

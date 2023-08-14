@@ -30,10 +30,7 @@ export const EventDetails = () => {
     const { eventID } = useParams();
     const eventIDInt = parseInt(eventID, 10);
     const eventfromquery = [];
-
-    
     const navigate = useNavigate();
-
     const [event, setEvent] = useState(null);
 
     //get event function 
@@ -53,6 +50,32 @@ export const EventDetails = () => {
             return [];
           });
     };
+
+    const deleteEvent = (eventIDInt) => {
+      const eventsQuery = query(collection(db, "Events"), where("eventID", "==", eventIDInt));
+    
+      getDocs(eventsQuery)
+        .then((querySnapshot) => {
+          console.log(querySnapshot.docs);
+          // Check if there are matching documents
+          if (!querySnapshot.empty) {
+            // There is at least one matching document
+            // Assuming you want to delete all matching documents, you can loop through the documents
+            querySnapshot.docs.forEach((doc) => {
+              deleteDoc(doc.ref);
+            });
+            console.log('Documents deleted successfully.');
+          } else {
+            // No matching documents found
+            console.log('No matching documents found.');
+          }
+        })
+        .catch((error) => {
+          console.error("Error deleting documents: ", error);
+        });
+    };
+
+
 
     //call get event function and WAIT until returns
     useEffect(() => {
@@ -87,23 +110,7 @@ export const EventDetails = () => {
         eventtype = event[0].eventtype;
     }
 
-    const deleteevent = async (eventIDInt) => {
-      const eventsquery = query(collection(db, "Events"), where("eventID", "==", eventIDInt));
-      const querySnapshot = await getDocs(eventsquery);
-      console.log(querySnapshot.data);
-      // Check if there are matching documents
-      if (!querySnapshot.empty) {
-        // There is at least one matching document
-        // Assuming you want to delete all matching documents, you can loop through the documents
-        querySnapshot.forEach((doc) => {
-          deleteDoc(doc.ref);
-        });
-        console.log('Documents deleted successfully.');
-      } else {
-        // No matching documents found
-        console.log('No matching documents found.');
-      }
-    };
+    
     
     return (
         <div>
@@ -121,8 +128,8 @@ export const EventDetails = () => {
                   </div>
 
                   <div class = "eventdetailsfooter">
-                    <button onClick = {deleteevent} class = "deleteeventbtn">Delete Event</button>
-                    <button class = "saveeventbtn">Save Event</button>
+                    <button onClick = {deleteEvent} class = "deleteeventbtn">Delete</button>
+                    <button class = "saveeventbtn">Save</button>
                   </div>
               </div>
                 ) : (<div>Loading.. </div>)}

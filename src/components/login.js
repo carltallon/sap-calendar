@@ -70,12 +70,10 @@ const Login = () => {
 
             
             <div id="alertModal" class="modal">
-
               <div class="modal-content">
                 <span onClick={closealert} class="close">&times;</span>
-                <p>{errorMessageState}</p>
+                <p>Oops! Login failed. {errorMessageState}</p>
               </div>
-
             </div>
             
             <h2>Login</h2>

@@ -3,7 +3,7 @@ SAP Calendar app Carl Tallon.
 All other points of reference are available in the README.md.
 */
 
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, HashRouter } from "react-router-dom";
 import "./App.css";
  
 import Footer from "./components/footer";
@@ -16,6 +16,7 @@ import Newevent from "./components/newevent";
 function App() {
   return (
     <div id = "background" class = "background">
+    <HashRouter>
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
@@ -24,6 +25,7 @@ function App() {
         <Route path="/create" element={<Newevent />} />
       </Routes>
       <Footer />
+    </HashRouter>
     </div>
   );
 }
