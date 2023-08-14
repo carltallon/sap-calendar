@@ -30,6 +30,8 @@ export const EventDetails = () => {
     const { eventID } = useParams();
     const eventIDInt = parseInt(eventID, 10);
     const eventfromquery = [];
+    const [errorMessageState, seterrorMessageState] = useState('No Error');
+    const [GoodMessageState, setGoodMessageState] = useState('No Error');
     const navigate = useNavigate();
     const [event, setEvent] = useState(null);
 
@@ -52,6 +54,7 @@ export const EventDetails = () => {
     };
 
     const deleteEvent = (eventIDInt) => {
+      console.log(typeof(eventIDInt));
       const eventsQuery = query(collection(db, "Events"), where("eventID", "==", eventIDInt));
     
       getDocs(eventsQuery)
@@ -110,14 +113,50 @@ export const EventDetails = () => {
         eventtype = event[0].eventtype;
     }
 
+    const goodalertbox = (message) => {
+      var modal = document.getElementById("goodModal");
+      modal.style.display = "block";
+      setGoodMessageState(message);
+    }
+  
+    const alertbox = (errorMessage) => {
+      var modal = document.getElementById("alertModal");
+      modal.style.display = "block";
+      seterrorMessageState(errorMessage);
+    }
+  
+    const closealert = () => {
+      var modal = document.getElementById("alertModal");
+      modal.style.display = "none";
+    }
+  
+    const closealertcontinue = () => {
+      var modal = document.getElementById("alertModal");
+      modal.style.display = "none";
+      navigate("/");
+    }
+
     
     
     return (
         <div>
             <NavbarNoSearch />
             <div class = "eventdetailsdiv">
-                {event ? (
+              <div id="goodModal" class="modal">
+                <div class="modal-contentgood">
+                  <p>User created! Welcome {GoodMessageState}! </p>
+                  <button class = "continuebutton" onClick={closealertcontinue}><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+                </div>
+              </div>
+              <div id="alertModal" class="modal">
+                <div class="modal-content">
+                  <span onClick={closealert} class="close">&times;</span>
+                  <p> Oops! Try again. {errorMessageState}</p>
+                </div>
+              </div>
+
                 <div>
+                {event ? (
                   <div class = "eventdetailsgrid">  
                       <div class = "eventdetailsinfo">Event Name:  <p>{ eventname }</p> </div>
                       <div class = "eventdetailsinfo">Start date: <p>{ eventstart }</p></div>
@@ -125,16 +164,13 @@ export const EventDetails = () => {
                       <div class = "eventdetailsinfo">End date: <p>{ eventend }</p> </div>
                       <div class = "eventdetailsinfo">Event Location: <p>{eventlocation}</p></div>
                       <div class = "eventdetailsinfo">Event Comment: <p>{eventcomment}</p></div>
-                  </div>
+                  </div>) : (<div>Loading.. </div>)}
 
                   <div class = "eventdetailsfooter">
-                    <button onClick = {deleteEvent} class = "deleteeventbtn">Delete</button>
+                    <button onClick={() => deleteEvent(eventIDInt)} class = "deleteeventbtn">Delete</button>
                     <button class = "saveeventbtn">Save</button>
                   </div>
-              </div>
-                ) : (<div>Loading.. </div>)}
-
-                    
+              </div> 
             </div>
         </div>
     );
