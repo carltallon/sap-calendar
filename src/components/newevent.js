@@ -125,16 +125,41 @@ export default function Newevent() {
                                         </div>
                                         <div class="col-sm-4">
                                             <select required id = "starttime" class="form-control border">
+                                                <option value="07:00">07:00 am</option>
+                                                <option value="07:30">07:30 am</option>
                                                 <option value="08:00" selected>8:00 am</option>
+                                                <option value="08:30">08:30 am</option>
                                                 <option value="09:00">9:00 am</option>
+                                                <option value="09:30">09:30 am</option>
                                                 <option value="10:00">10:00 am</option>
+                                                <option value="10:30">10:30 am</option>
                                                 <option value="11:00">11:00 am</option>
+                                                <option value="11:30">11:30 am</option>
                                                 <option value="12:00">12:00 pm</option>
+                                                <option value="12:30">12:30 pm</option>
                                                 <option value="13:00">01:00 pm</option>
+                                                <option value="13:30">01:30 pm</option>
                                                 <option value="14:00">02:00 pm</option>
+                                                <option value="14:30">02:30 pm</option>
                                                 <option value="15:00">03:00 pm</option>
+                                                <option value="15:30">03:30 pm</option>
                                                 <option value="16:00">04:00 pm</option>
+                                                <option value="16:30">04:30 pm</option>
                                                 <option value="17:00">05:00 pm</option>
+                                                <option value="17:30">05:30 pm</option>
+                                                <option value="18:00">06:00 pm</option>
+                                                <option value="18:30">06:30 pm</option>
+                                                <option value="19:00">07:00 pm</option>
+                                                <option value="19:30">07:30 pm</option>
+                                                <option value="20:00">08:00 pm</option>
+                                                <option value="20:30">08:30 pm</option>
+                                                <option value="21:00">09:00 pm</option>
+                                                <option value="21:30">09:30 pm</option>
+                                                <option value="22:00">10:00 pm</option>
+                                                <option value="22:30">10:30 pm</option>
+                                                <option value="23:00">11:00 pm</option>
+                                                <option value="23:30">11:30 pm</option>
+                                                <option value="00:00">12:00 pm</option>
                                             </select>
                                         </div>
                                     </div>
@@ -144,16 +169,41 @@ export default function Newevent() {
                                         </div>
                                         <div class="col-sm-4">
                                             <select required id="endtime" class="form-control border">
+                                            <option value="07:00">07:00 am</option>
+                                                <option value="07:30">07:30 am</option>
                                                 <option value="08:00">8:00 am</option>
-                                                <option value="09:00" selected>9:00 am</option>
+                                                <option value="08:30" selected>08:30 am</option>
+                                                <option value="09:00">9:00 am</option>
+                                                <option value="09:30">09:30 am</option>
                                                 <option value="10:00">10:00 am</option>
+                                                <option value="10:30">10:30 am</option>
                                                 <option value="11:00">11:00 am</option>
+                                                <option value="11:30">11:30 am</option>
                                                 <option value="12:00">12:00 pm</option>
+                                                <option value="12:30">12:30 pm</option>
                                                 <option value="13:00">01:00 pm</option>
+                                                <option value="13:30">01:30 pm</option>
                                                 <option value="14:00">02:00 pm</option>
+                                                <option value="14:30">02:30 pm</option>
                                                 <option value="15:00">03:00 pm</option>
+                                                <option value="15:30">03:30 pm</option>
                                                 <option value="16:00">04:00 pm</option>
+                                                <option value="16:30">04:30 pm</option>
                                                 <option value="17:00">05:00 pm</option>
+                                                <option value="17:30">05:30 pm</option>
+                                                <option value="18:00">06:00 pm</option>
+                                                <option value="18:30">06:30 pm</option>
+                                                <option value="19:00">07:00 pm</option>
+                                                <option value="19:30">07:30 pm</option>
+                                                <option value="20:00">08:00 pm</option>
+                                                <option value="20:30">08:30 pm</option>
+                                                <option value="21:00">09:00 pm</option>
+                                                <option value="21:30">09:30 pm</option>
+                                                <option value="22:00">10:00 pm</option>
+                                                <option value="22:30">10:30 pm</option>
+                                                <option value="23:00">11:00 pm</option>
+                                                <option value="23:30">11:30 pm</option>
+                                                <option value="00:00">12:00 pm</option>
                                             </select>
                                         </div>
                                     </div>

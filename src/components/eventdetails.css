@@ -14,6 +14,7 @@
     display: grid;
     grid-template-columns: auto auto;
     margin-top: 4vh;
+    gap: 12px;
     
 }
 
@@ -90,10 +91,24 @@
     font-weight: 700;
 }
 
-.eventdetailsinfo p {
-    font-size: 1.8rem;
-    color: black;
-    padding: 5px;
-    margin: 1vh;
-    font-weight: 100;
+
+.eventdetailsgrid input[type="text"] {
+    padding: 10px;
+    font-size: 1.6rem;
+    border: 2px solid #41a3ff; 
+    border-radius: 5px;  
+}
+
+.eventdetailsgrid input[type="date"] {
+    padding: 10px;
+    font-size: 1.6rem;
+    border: 2px solid #41a3ff;   
+    border-radius: 5px; 
+}
+
+.eventdetailsdropdown {
+    padding: 10px;
+    font-size: 1.6rem;     
+    border: 2px solid #41a3ff;   
+    border-radius: 5px; 
 }

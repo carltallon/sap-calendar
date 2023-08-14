@@ -291,7 +291,7 @@ days not in month
 }
 
 #goodModal {
-  color: rgb(10, 157, 10);
+  color: #41a3ff;
 }
 
 .modal-contentgood {
@@ -312,7 +312,7 @@ days not in month
   margin: 10px;
   margin-top: 1vh;
   color: rgb(255, 255, 255);
-  background-color: rgb(10, 157, 10);
+  background-color: #41a3ff;
   border-radius: 8px;
   font-size: 1.5rem;
   width: 5vw;
@@ -324,7 +324,7 @@ days not in month
 }
 
 .continuebutton:hover {
-  color: rgb(10, 157, 10);
+  color: #41a3ff;
   background-color: white;
   cursor: pointer;
 }

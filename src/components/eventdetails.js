@@ -15,12 +15,12 @@ const auth = getAuth();
 
 
 // Function to convert timestamp to a JavaScript Date objects
-const convertFirestoreTimestampToDate = (firestoreTimestamp) => {
-    if (!firestoreTimestamp || !firestoreTimestamp.seconds) {
-      return null; // Return null if timestamp is invalid or not provided
-    }
-    const { seconds, nanoseconds } = firestoreTimestamp;
-    return new Date(seconds * 1000 + nanoseconds / 1000000); // Combine seconds and nanoseconds
+const convertFirestoreTimestampToDate = (timestamp) => {
+  const date = new Date(timestamp.seconds * 1000); // Convert seconds to milliseconds
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0'); // Adding 1 because months are 0-indexed
+  const day = String(date.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
 };
 
 
@@ -45,6 +45,7 @@ export const EventDetails = () => {
               const eventData = doc.data();
               eventfromquery.push(eventData);
             });
+            
             return eventfromquery;
           })
           .catch((error) => {
@@ -67,51 +68,52 @@ export const EventDetails = () => {
             querySnapshot.docs.forEach((doc) => {
               deleteDoc(doc.ref);
             });
-            console.log('Documents deleted successfully.');
-          } else {
-            // No matching documents found
-            console.log('No matching documents found.');
+            goodalertbox(event.title);
           }
         })
         .catch((error) => {
-          console.error("Error deleting documents: ", error);
+          alertbox(error);
         });
     };
 
 
+    const updateEvent = ( event,eventIDInt ) => {
+      const eventsQuery = query(collection(db, "Events"), where("eventID", "==", eventIDInt));
+      
+      getDocs(eventsQuery)
+        .then((querySnapshot) => {
+          console.log(querySnapshot.docs);
+          // Check if there are matching documents
+          if (!querySnapshot.empty) {
+            // There is at least one matching document
+            // Assuming you want to update all matching documents, you can loop through the documents
+            querySnapshot.docs.forEach((doc) => {
+              const eventRef = doc.ref;
+              updateDoc(eventRef, event)
+                .then(() => {
+                  goodalertbox(event.title);
+                })
+                .catch((error) => {
+                  alertbox("Error updating event: " + error);
+                });
+            });
+          }
+        })
+        .catch((error) => {
+          alertbox("Error fetching event: " + error);
+        });
+    };
 
     //call get event function and WAIT until returns
     useEffect(() => {
         getEventByEventID(eventIDInt)
           .then((eventsArray) => {
-            setEvent(eventsArray);
+            setEvent(eventsArray[0]);
           })
           .catch((error) => {
             console.error('Error fetching events:', error);
           });
     }, []);
-
-    //define event variables
-    var eventname = "";
-    var eventstart = "";
-    var eventend = "";
-    var eventcomment = "";
-    var eventlocation = "";
-    var eventtype = "";
-
-    //fill  variables when event is found 
-    if (event !== null){
-        eventname = event[0].title;
-        const eventstartdate = convertFirestoreTimestampToDate(event[0].start);
-        eventstart = eventstartdate.toDateString();
-
-        const eventenddate = convertFirestoreTimestampToDate(event[0].end);
-        eventend = eventenddate.toDateString();
-
-        eventlocation = event[0].location;
-        eventcomment = event[0].comment;
-        eventtype = event[0].eventtype;
-    }
 
     const goodalertbox = (message) => {
       var modal = document.getElementById("goodModal");
@@ -136,7 +138,12 @@ export const EventDetails = () => {
       navigate("/");
     }
 
-    
+    const handlePropertyChange = (propertyName, newValue) => {
+      setEvent((prevEvent) => ({
+        ...prevEvent,
+        [propertyName]: newValue
+      }));
+    };
     
     return (
         <div>
@@ -144,10 +151,11 @@ export const EventDetails = () => {
             <div class = "eventdetailsdiv">
               <div id="goodModal" class="modal">
                 <div class="modal-contentgood">
-                  <p>User created! Welcome {GoodMessageState}! </p>
+                  <p>Event "{GoodMessageState}" updated. </p>
                   <button class = "continuebutton" onClick={closealertcontinue}><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
                 </div>
               </div>
+
               <div id="alertModal" class="modal">
                 <div class="modal-content">
                   <span onClick={closealert} class="close">&times;</span>
@@ -158,17 +166,29 @@ export const EventDetails = () => {
                 <div>
                 {event ? (
                   <div class = "eventdetailsgrid">  
-                      <div class = "eventdetailsinfo">Event Name:  <p>{ eventname }</p> </div>
-                      <div class = "eventdetailsinfo">Start date: <p>{ eventstart }</p></div>
-                      <div class = "eventdetailsinfo">Event type: <p>{eventtype}</p></div>
-                      <div class = "eventdetailsinfo">End date: <p>{ eventend }</p> </div>
-                      <div class = "eventdetailsinfo">Event Location: <p>{eventlocation}</p></div>
-                      <div class = "eventdetailsinfo">Event Comment: <p>{eventcomment}</p></div>
+
+                      <div class = "eventdetailsinfo">Event Name:</div>
+                      <div class = "eventdetailsinfo">Start date:</div>
+                      <input type = "text" defaultValue = {event.title} onChange={(e) => handlePropertyChange('title', e.target.value)}></input>
+                      <input type = "date" defaultValue = {convertFirestoreTimestampToDate(event.start)} onChange={(e) => handlePropertyChange('startdate', e.target.value)}></input>
+                      <div class = "eventdetailsinfo">Event type: </div>
+                      <div class = "eventdetailsinfo">End date: </div>
+                      <select class="eventdetailsdropdown" defaultValue = {event.eventtype} onChange={(e) => handlePropertyChange('eventtype', e.target.value)}>
+                            <option value="work">Work Event</option>
+                            <option value="personal">Personal Event</option>
+                      </select>
+                      <input type = "date" defaultValue = {convertFirestoreTimestampToDate(event.end)} onChange={(e) => handlePropertyChange('startdate', e.target.value)}></input>
+                      
+                      <div class = "eventdetailsinfo">Event Location: </div>
+                      <div class = "eventdetailsinfo">Event Comment: </div>  
+                      <input type = "text" defaultValue = {event.location} onChange={(e) => handlePropertyChange('location', e.target.value)}></input>
+                      <input type = "text" defaultValue = {event.comment} onChange={(e) => handlePropertyChange('comment', e.target.value)}></input>
+                    
                   </div>) : (<div>Loading.. </div>)}
 
                   <div class = "eventdetailsfooter">
                     <button onClick={() => deleteEvent(eventIDInt)} class = "deleteeventbtn">Delete</button>
-                    <button class = "saveeventbtn">Save</button>
+                    <button onClick={() => updateEvent(event, eventIDInt)}class = "saveeventbtn">Save</button>
                   </div>
               </div> 
             </div>
