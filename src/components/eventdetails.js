@@ -12,7 +12,6 @@ import { useNavigate  } from 'react-router-dom';
 import db from '../components/firebaseconfig'; 
 
 const auth = getAuth();
-const user = auth.currentUser;
 
 
 // Function to convert timestamp to a JavaScript Date objects
@@ -115,8 +114,8 @@ export const EventDetails = () => {
                   <div class = "eventdetailsgrid">  
                       <div class = "eventdetailsinfo">Event Name:  <p>{ eventname }</p> </div>
                       <div class = "eventdetailsinfo">Start date: <p>{ eventstart }</p></div>
-                      <div class = "eventdetailsinfo">End date: <p>{ eventend }</p> </div>
                       <div class = "eventdetailsinfo">Event type: <p>{eventtype}</p></div>
+                      <div class = "eventdetailsinfo">End date: <p>{ eventend }</p> </div>
                       <div class = "eventdetailsinfo">Event Location: <p>{eventlocation}</p></div>
                       <div class = "eventdetailsinfo">Event Comment: <p>{eventcomment}</p></div>
                   </div>

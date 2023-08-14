@@ -50,6 +50,7 @@ export default function Navbar( {events} ) {
             </label>
 
             
+            
         </ul>
 
         <div>
@@ -60,7 +61,7 @@ export default function Navbar( {events} ) {
                 <FilteredEventsList filteredEvents={filteredEvents}/> 
             )}
 
-        </div>
+            </div>
 
         <ul>
 

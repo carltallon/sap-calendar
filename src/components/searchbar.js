@@ -25,14 +25,14 @@ const SearchBar = ({ onSearch }) => {
 
   return (
   <form className="search-container" onSubmit={handleSearchSubmit}>
-  <input
+    <input
           type="text"
           className="searchbar"
           placeholder="Search for an Event.."
           value={searchQuery}
           onChange={handleSearchChange}
         />
-  <button type="submit"><i className="fa fa-search"></i></button>
+    <button type="submit"><i className="fa fa-search"></i></button>
   </form>
   );
 };

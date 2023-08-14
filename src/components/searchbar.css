@@ -1,7 +1,7 @@
 .searchbar {
-    width: 29.5vw;
+    width: 15vw;
     padding: 5px;
-    border: 2.5px solid #41a3ff;
+    border: 2px solid #41a3ff;
     font-size: 1.2rem;
     border-radius: 15px;
     font-weight: 100;
@@ -14,25 +14,27 @@
     flex-direction: column;
     text-align: center;
     position: absolute;
-    width: 30vw;
+    width: 15.8vw;
 }
 
 .individualsearchresult a {
     text-decoration: none;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
 }
 
 .individualsearchresult {
     width: 100%;
-    background-color: #41a3ff;
+    border:1px solid black;
     color: white;
+    background-color: #41a3ff;
     border-radius: 5px;
-    margin-top: 2.5px;
+    margin-top: 1px;
+    z-index: 100;
 }
 
 
 .individualsearchresult a:hover {
-    color: #000000;
+    color: #ffffff;
 }
 
 .search-container {
