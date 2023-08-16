@@ -5,7 +5,6 @@ import './login.css';
 import { useNavigate  } from 'react-router-dom';
 import { getAuth,signInWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from 'react';
-import database from '../components/loginregisterconfig'; 
 
 const Login = () => {
 

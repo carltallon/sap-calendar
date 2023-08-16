@@ -6,7 +6,6 @@ import db from '../components/firebaseconfig';
 import { getAuth } from "firebase/auth";
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { collection, query, where, getDocs } from "firebase/firestore";
-import { useEffect } from 'react';
 
 const locations = [];
 const auth = getAuth();

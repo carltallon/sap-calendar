@@ -2,7 +2,7 @@
 import "./eventdetails.css";
 import { useParams } from 'react-router-dom';
 import { getAuth  } from "firebase/auth";
-import { doc, deleteDoc, updateDoc  } from "firebase/firestore";
+import { deleteDoc, updateDoc  } from "firebase/firestore";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import NavbarNoSearch from "../components/navbarnosearch.js";
 import React, { useEffect, useState } from "react";
@@ -11,7 +11,6 @@ import { useNavigate  } from 'react-router-dom';
 
 import db from '../components/firebaseconfig'; 
 
-const auth = getAuth();
 
 
 // Function to convert timestamp to a JavaScript Date objects
