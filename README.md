@@ -12,3 +12,4 @@ Project Lead - Nayana Jaimon
 
 Project Tester - Julia Matuscheck
 
+![Alt](https://repobeats.axiom.co/api/embed/abe6b62562ddd023e47ea2c53c1fe227b63880b5.svg "Repobeats analytics image")
