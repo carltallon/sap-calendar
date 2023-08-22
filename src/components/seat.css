@@ -46,10 +46,24 @@
     cursor: pointer;
 }
 
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1200px) {
     .users {
         height: 5vh;
     }
+    
+    .mainseatdiv 
+    {
+        grid-template-columns: auto;
+    }
+
+    .seatdiv {
+        width: 40vh;
+    }
+    .users {
+        width: 30vw;
+    }
+
+
 }
 
 .seatingimgdiv {

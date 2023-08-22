@@ -177,7 +177,6 @@ export const EventDetails = () => {
                             <option value="personal">Personal Event</option>
                       </select>
                       <input type = "date" defaultValue = {convertFirestoreTimestampToDate(event.end)} onChange={(e) => handlePropertyChange('startdate', e.target.value)}></input>
-                      
                       <div class = "eventdetailsinfo">Event Location: </div>
                       <div class = "eventdetailsinfo">Event Comment: </div>  
                       <input type = "text" defaultValue = {event.location} onChange={(e) => handlePropertyChange('location', e.target.value)}></input>
