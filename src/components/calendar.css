@@ -54,7 +54,7 @@ body {
 
 @media screen and (max-width: 1450px) {
   .upcomingeventsdiv {
-    margin-top: 20vh;
+    margin-top: 30vh;
   }
 }
 
@@ -123,7 +123,34 @@ body {
 
 
   .upcomingeventsbutton {
-    width: 40vw;
+    width: auto;
+  }
+}
+
+@media screen and (max-width: 600px) {
+
+
+  .upcomingeventsbutton {
+    width: auto;
+  }
+
+  .upcomingeventsdiv {
+    margin-top: 20vh;
+  }
+
+  .usergreeting {
+    font-size: 1.6rem;
+  }
+  .sidedivmain {
+    width: auto;
+  }
+
+  .calendarholdermain {
+    width: 100%;
+  }
+
+  #calendardiv {
+    width: auto;
   }
 }
   
@@ -239,7 +266,7 @@ days not in month
   }
 
   .sidedivmain {
-    width: 85vw;
+    width: 90vw;
   }
 
   .upcomingeventsdiv {
